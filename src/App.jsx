@@ -1,12 +1,12 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import OpeningFrame from './vignettes/OpeningFrame'
-import MoviePreview from './vignettes/MoviePreview'
-import SocialReveal from './vignettes/SocialReveal'
-import Marcus from './vignettes/Marcus'
-import Conversational from './vignettes/Conversational'
-import CFO from './vignettes/CFO'
-import CoachingLayer from './vignettes/CoachingLayer'
-import CHRO from './vignettes/CHRO'
+import OpeningFrame from './vignettes/opening-frame'
+import MoviePreview from './vignettes/movie-preview'
+import SocialReveal from './vignettes/social-reveal'
+import Marcus from './vignettes/vignette-1-marcus'
+import Conversational from './vignettes/vignette-2-conversational'
+import CFO from './vignettes/vignette-3-cfo-rebuilt'
+import CoachingLayer from './vignettes/vignette-4-coaching-layer'
+import CHRO from './vignettes/vignette-5-chro-rebuilt'
 
 export default function App() {
   return (
