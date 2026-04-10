@@ -7,12 +7,12 @@ const FRAMES = [
     type: "opening",
     lines: [
       { text: "Most revenue leaders", size: 28, color: "#94a3b8", weight: 400, delay: 0 },
-      { text: "are very good at", size: 28, color: "#94a3b8", weight: 400, delay: 300 },
-      { text: "describing the problem.", size: 28, color: "#f1f5f9", weight: 600, delay: 600 },
-      { text: "Fewer are willing", size: 22, color: "#6b7280", weight: 400, delay: 1200 },
-      { text: "to own it.", size: 22, color: "#a78bfa", weight: 600, delay: 1500 },
+      { text: "are very good at", size: 28, color: "#94a3b8", weight: 400, delay: 345 },
+      { text: "describing the problem.", size: 28, color: "#f1f5f9", weight: 600, delay: 690 },
+      { text: "Fewer are willing", size: 22, color: "#6b7280", weight: 400, delay: 1380 },
+      { text: "to own it.", size: 22, color: "#a78bfa", weight: 600, delay: 1725 },
     ],
-    hold: 4000,
+    hold: 4600,
   },
 
   // ── TENET 1 ───────────────────────────────────────────────────────────────
@@ -23,7 +23,7 @@ const FRAMES = [
     tenet: "Make the news.",
     sub: "Don't report it.",
     accent: "#a78bfa",
-    hold: 3000,
+    hold: 3450,
   },
   {
     id: "t1-mirror",
@@ -36,7 +36,7 @@ const FRAMES = [
     accent: "#a78bfa",
     truth: "You're in the room.\nYou have the data.\nThe question is whether you're\ndescribing what happened —\nor deciding what happens next.",
     mirror: "When did you last\nmake the news?",
-    hold: 5000,
+    hold: 5750,
   },
 
   // ── TENET 2 ───────────────────────────────────────────────────────────────
@@ -47,7 +47,7 @@ const FRAMES = [
     tenet: "Pipeline health",
     sub: "is everything. All else follows.",
     accent: "#34d399",
-    hold: 3000,
+    hold: 3450,
   },
   {
     id: "t2-mirror",
@@ -60,7 +60,7 @@ const FRAMES = [
     accent: "#34d399",
     truth: "He had a £340k deal in Commit.\nThe economic buyer had been\ndark for three weeks.\nHe knew.\nHe just hadn't said it yet.",
     mirror: "A bad quarter isn't a\nclosing problem.\nIt's a pipeline problem\nnobody named\nthree months ago.",
-    hold: 5500,
+    hold: 6325,
   },
 
   // ── TENET 3 ───────────────────────────────────────────────────────────────
@@ -71,7 +71,7 @@ const FRAMES = [
     tenet: "Coaching is why",
     sub: "teams win.",
     accent: "#f59e0b",
-    hold: 3000,
+    hold: 3450,
   },
   {
     id: "t3-mirror",
@@ -84,7 +84,7 @@ const FRAMES = [
     accent: "#f59e0b",
     truth: "She didn't wait for the\nproblem to reach her.\nShe was already in the deal.\nAsking the question\nLiam needed to hear.",
     mirror: "Talent gets you\ninto the game.\nCoaching wins it.",
-    hold: 5000,
+    hold: 5750,
   },
 
   // ── TENET 4 ───────────────────────────────────────────────────────────────
@@ -95,12 +95,12 @@ const FRAMES = [
     tenet: "Revenue",
     sub: "cures all ills.",
     accent: "#60a5fa",
-    hold: 4200,
+    hold: 4830,
   },
   {
     id: "t4-mirror",
     type: "mirror",
-    player: "THE CFO · BOARDROOM",
+    player: "FIONA · CFO · GROWTH PARTNER",
     avatar: "CF",
     avatarBg: "#0a1628",
     avatarBorder: "#1d4ed8",
@@ -108,14 +108,14 @@ const FRAMES = [
     accent: "#60a5fa",
     truth: "Your CRO just presented\nthe forecast.\nHow much of it do\nyou actually believe?",
     mirror: "The pipeline is not\na sales metric.\nIt is a business\nhealth metric.",
-    hold: 5000,
+    hold: 5750,
   },
 
   // ── CHRO MIRROR ───────────────────────────────────────────────────────────
   {
     id: "chro-mirror",
     type: "mirror",
-    player: "THE CHRO · PEOPLE LEADER",
+    player: "ANNA · CHRO · PEOPLE LEADER",
     avatar: "HR",
     avatarBg: "#1a0a2e",
     avatarBorder: "#7c3aed",
@@ -123,7 +123,7 @@ const FRAMES = [
     accent: "#e879f9",
     truth: "You invested in\nleadership development.\nYour best salespeople\nare still being managed\nby a quota and a dashboard.",
     mirror: "Coaching at scale\nisn't a programme.\nIt's a culture.\nSet by the leader.\nEvery week.",
-    hold: 5500,
+    hold: 6325,
   },
 
   // ── CLOSE ─────────────────────────────────────────────────────────────────
@@ -132,13 +132,13 @@ const FRAMES = [
     type: "close",
     lines: [
       { text: "The best organisations", size: 24, color: "#94a3b8", weight: 400, delay: 0 },
-      { text: "aren't smarter.", size: 24, color: "#f1f5f9", weight: 600, delay: 400 },
-      { text: "They're earlier.", size: 32, color: "#a78bfa", weight: 700, delay: 900 },
-      { text: "They see it coming.", size: 16, color: "#6b7280", weight: 400, delay: 1600 },
-      { text: "And they do something about it", size: 16, color: "#6b7280", weight: 400, delay: 2000 },
-      { text: "while there's still time.", size: 16, color: "#94a3b8", weight: 500, delay: 2400 },
+      { text: "aren't smarter.", size: 24, color: "#f1f5f9", weight: 600, delay: 460 },
+      { text: "They're earlier.", size: 32, color: "#a78bfa", weight: 700, delay: 1035 },
+      { text: "They see it coming.", size: 16, color: "#6b7280", weight: 400, delay: 1840 },
+      { text: "And they do something about it", size: 16, color: "#6b7280", weight: 400, delay: 2300 },
+      { text: "while there's still time.", size: 16, color: "#94a3b8", weight: 500, delay: 2760 },
     ],
-    hold: 5000,
+    hold: 5750,
   },
 ];
 
@@ -180,7 +180,7 @@ function TextFrame({ frame, progress }) {
 function TenetFrame({ frame }) {
   const [show, setShow] = useState(false);
   useEffect(() => {
-    const t = setTimeout(() => setShow(true), 200);
+    const t = setTimeout(() => setShow(true), 265);
     return () => clearTimeout(t);
   }, [frame.id]);
 
@@ -246,9 +246,9 @@ function MirrorFrame({ frame }) {
     setPhase(0);
     timers.current.forEach(clearTimeout);
     timers.current = [
-      setTimeout(() => setPhase(1), 300),
-      setTimeout(() => setPhase(2), 1400),
-      setTimeout(() => setPhase(3), 2800),
+      setTimeout(() => setPhase(1), 397),
+      setTimeout(() => setPhase(2), 1852),
+      setTimeout(() => setPhase(3), 3703),
     ];
     return () => timers.current.forEach(clearTimeout);
   }, [frame.id]);
@@ -435,7 +435,7 @@ export default function SocialReveal() {
             }}>
               <div style={{
                 fontSize: 9, letterSpacing: "0.25em",
-                color: "#374151",
+                color: "#6b7280",
                 marginBottom: 8
               }}>SELLER PULSE · DAVID KIRK</div>
               <div style={{
@@ -484,7 +484,7 @@ export default function SocialReveal() {
               <button onClick={reset} style={{
                 marginTop: 12,
                 background: "transparent",
-                border: "1px solid #374151",
+                border: "1px solid #6b7280",
                 borderRadius: 40, padding: "10px 28px",
                 color: "#6b7280", fontSize: 10,
                 letterSpacing: "0.15em", cursor: "pointer",
@@ -523,7 +523,7 @@ export default function SocialReveal() {
 
       {/* Outside label */}
       <div style={{
-        marginTop: 20, fontSize: 9, color: "#1f2937",
+        marginTop: 20, fontSize: 9, color: "#4b5563",
         letterSpacing: "0.18em", textAlign: "center"
       }}>
         LINKEDIN · INSTAGRAM · TAP TO ADVANCE

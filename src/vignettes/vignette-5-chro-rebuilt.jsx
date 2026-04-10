@@ -173,7 +173,7 @@ function DayToDayCard({ item, active, onClick }) {
           </div>
         </div>
         {!active && (
-          <div style={{ fontSize: 10, color: "#374151" }}>{item.metricSub}</div>
+          <div style={{ fontSize: 10, color: "#6b7280" }}>{item.metricSub}</div>
         )}
       </div>
 
@@ -184,7 +184,7 @@ function DayToDayCard({ item, active, onClick }) {
             background: "#06060e", borderRadius: 8, padding: "10px 12px",
             border: "1px solid #1a1a2e"
           }}>
-            <div style={{ fontSize: 8, color: "#374151", letterSpacing: "0.12em", marginBottom: 4 }}>THE PROBLEM</div>
+            <div style={{ fontSize: 8, color: "#6b7280", letterSpacing: "0.12em", marginBottom: 4 }}>THE PROBLEM</div>
             {item.problem}
           </div>
           <div style={{
@@ -220,7 +220,7 @@ export default function CHRORebuilt() {
       {/* Header */}
       <div style={{
         padding: "18px 24px",
-        borderBottom: "1px solid #111124",
+        borderBottom: "1px solid #1e1e2e",
         display: "flex", alignItems: "center", justifyContent: "space-between"
       }}>
         <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
@@ -230,10 +230,10 @@ export default function CHRORebuilt() {
             display: "flex", alignItems: "center", justifyContent: "center",
             fontSize: 12, fontWeight: 700, color: "#d8b4fe",
             boxShadow: "0 0 20px #7c3aed33"
-          }}>CH</div>
+          }}>AN</div>
           <div>
             <div style={{ fontSize: 13, fontWeight: 600, color: "#f8fafc", letterSpacing: "0.08em" }}>
-              THE CHRO
+              ANNA
             </div>
             <div style={{ fontSize: 9, color: "#7c3aed", letterSpacing: "0.15em", marginTop: 1 }}>
               PEOPLE STRATEGY · REVENUE TABLE
@@ -255,7 +255,7 @@ export default function CHRORebuilt() {
               padding: "8px 14px",
               background: mode === m.key ? "#1a0a2e" : "transparent",
               border: "none",
-              color: mode === m.key ? "#d8b4fe" : "#374151",
+              color: mode === m.key ? "#d8b4fe" : "#6b7280",
               fontSize: 9, letterSpacing: "0.12em",
               cursor: "pointer", transition: "all 0.2s",
               borderRight: m.key === "boardroom" ? "1px solid #1a1a2e" : "none"

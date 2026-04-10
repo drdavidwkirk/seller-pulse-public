@@ -2,12 +2,12 @@ import { useState, useEffect, useRef } from "react";
 
 const LINES = [
   { text: "It's a discipline gap.", size: 32, weight: 700, color: "#f1f5f9", delay: 0, family: "syne" },
-  { text: "Clean pipeline.", size: 24, weight: 600, color: "#a78bfa", delay: 800, family: "syne" },
-  { text: "Personal accountability.", size: 24, weight: 600, color: "#a78bfa", delay: 1400, family: "syne" },
-  { text: "A coaching culture that actually scales.", size: 24, weight: 600, color: "#a78bfa", delay: 2000, family: "syne" },
-  { text: "We've closed that gap before.", size: 20, weight: 400, color: "#94a3b8", delay: 3000, family: "mono" },
-  { text: "A dozen times.", size: 20, weight: 400, color: "#94a3b8", delay: 3600, family: "mono" },
-  { text: "Different names. Same playbook.", size: 20, weight: 600, color: "#f1f5f9", delay: 4400, family: "mono" },
+  { text: "Clean pipeline.", size: 24, weight: 600, color: "#a78bfa", delay: 920, family: "syne" },
+  { text: "Personal accountability.", size: 24, weight: 600, color: "#a78bfa", delay: 1610, family: "syne" },
+  { text: "A coaching culture that actually scales.", size: 24, weight: 600, color: "#a78bfa", delay: 2300, family: "syne" },
+  { text: "We've closed that gap before.", size: 20, weight: 400, color: "#94a3b8", delay: 3450, family: "mono" },
+  { text: "A dozen times.", size: 20, weight: 400, color: "#94a3b8", delay: 4140, family: "mono" },
+  { text: "Different names. Same playbook.", size: 20, weight: 600, color: "#f1f5f9", delay: 5060, family: "mono" },
 ];
 
 export default function OpeningFrame() {
@@ -25,7 +25,7 @@ export default function OpeningFrame() {
     );
 
     timers.current.push(
-      setTimeout(() => setShowTagline(true), 5600)
+      setTimeout(() => setShowTagline(true), 7406)
     );
   };
 
@@ -74,25 +74,26 @@ export default function OpeningFrame() {
           }}>
             <div style={{
               fontSize: 9, letterSpacing: "0.3em",
-              color: "#1f2937", marginBottom: 32,
+              color: "#4b5563", marginBottom: 32,
               fontFamily: "'DM Mono', monospace"
             }}>SELLER PULSE · THE OPENING</div>
             <button onClick={start} style={{
               background: "transparent",
-              border: "1px solid #1f2937",
+              border: "1px solid #a78bfa",
               borderRadius: 40, padding: "12px 32px",
-              color: "#374151", fontSize: 10,
+              color: "#c4b5fd", fontSize: 10,
               letterSpacing: "0.2em", cursor: "pointer",
               fontFamily: "'DM Mono', monospace",
-              transition: "all 0.3s"
+              transition: "all 0.3s",
+              boxShadow: "0 0 20px #a78bfa22"
             }}
               onMouseEnter={e => {
-                e.currentTarget.style.borderColor = "#a78bfa";
-                e.currentTarget.style.color = "#c4b5fd";
+                e.currentTarget.style.background = "#a78bfa18";
+                e.currentTarget.style.boxShadow = "0 0 30px #a78bfa44";
               }}
               onMouseLeave={e => {
-                e.currentTarget.style.borderColor = "#1f2937";
-                e.currentTarget.style.color = "#374151";
+                e.currentTarget.style.background = "transparent";
+                e.currentTarget.style.boxShadow = "0 0 20px #a78bfa22";
               }}
             >▶ BEGIN</button>
           </div>
@@ -141,32 +142,32 @@ export default function OpeningFrame() {
             animation: "fadeUp 0.8s ease"
           }}>
             <div style={{
-              fontSize: 9, color: "#1f2937",
+              fontSize: 9, color: "#4b5563",
               letterSpacing: "0.25em",
               fontFamily: "'DM Mono', monospace",
               lineHeight: 2
             }}>
               SELLER PULSE<br />
-              <span style={{ color: "#111124" }}>THE STORY STARTS HERE</span>
+              <span style={{ color: "#1e1e2e" }}>THE STORY STARTS HERE</span>
             </div>
 
             <button onClick={reset} style={{
               marginTop: 20,
               background: "transparent",
-              border: "1px solid #111124",
+              border: "1px solid #1e1e2e",
               borderRadius: 40, padding: "8px 24px",
-              color: "#1f2937", fontSize: 9,
+              color: "#4b5563", fontSize: 9,
               letterSpacing: "0.15em", cursor: "pointer",
               fontFamily: "'DM Mono', monospace",
               transition: "all 0.2s"
             }}
               onMouseEnter={e => {
-                e.currentTarget.style.borderColor = "#374151";
-                e.currentTarget.style.color = "#374151";
+                e.currentTarget.style.borderColor = "#6b7280";
+                e.currentTarget.style.color = "#6b7280";
               }}
               onMouseLeave={e => {
-                e.currentTarget.style.borderColor = "#111124";
-                e.currentTarget.style.color = "#1f2937";
+                e.currentTarget.style.borderColor = "#1e1e2e";
+                e.currentTarget.style.color = "#4b5563";
               }}
             >↺ AGAIN</button>
           </div>

@@ -255,7 +255,7 @@ export default function CoachingLayer() {
         timerRef.current = setTimeout(addMarcus, mc === MARCUS_TO_SOPHIE.length ? 800 : 1400);
       } else {
         setPhase(2);
-        timerRef.current = setTimeout(addLiam, 600);
+        timerRef.current = setTimeout(addLiam, 794);
       }
     };
 
@@ -270,7 +270,7 @@ export default function CoachingLayer() {
       }
     };
 
-    timerRef.current = setTimeout(addMarcus, 800);
+    timerRef.current = setTimeout(addMarcus, 1058);
   };
 
   const reset = () => {
@@ -337,7 +337,7 @@ export default function CoachingLayer() {
             A deal is slipping. The system has seen it.<br />
             Watch what happens next.
           </div>
-          <div style={{ fontSize: 10, color: "#374151", letterSpacing: "0.15em", marginTop: 8 }}>
+          <div style={{ fontSize: 10, color: "#6b7280", letterSpacing: "0.15em", marginTop: 8 }}>
             PRESS PLAY TO BEGIN
           </div>
         </div>

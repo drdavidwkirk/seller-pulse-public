@@ -109,7 +109,7 @@ export default function MarcusVignette() {
     setTyping(false);
     setAnswered(prev => [...prev, selected.id]);
     if (answered.length + 1 >= TOPICS.length) {
-      setTimeout(() => setShowClose(true), 600);
+      setTimeout(() => setShowClose(true), 794);
     }
   };
 
@@ -129,7 +129,7 @@ export default function MarcusVignette() {
       {/* Header */}
       <div style={{
         padding: "24px 32px 20px",
-        borderBottom: "1px solid #111124",
+        borderBottom: "1px solid #1e1e2e",
         display: "flex", alignItems: "center", gap: 16
       }}>
         <div style={{
@@ -150,7 +150,7 @@ export default function MarcusVignette() {
         </div>
         <div style={{
           marginLeft: "auto", fontSize: 9,
-          color: "#1f2937", letterSpacing: "0.12em", textAlign: "right", lineHeight: 1.8
+          color: "#4b5563", letterSpacing: "0.12em", textAlign: "right", lineHeight: 1.8
         }}>
           <div style={{ color: "#16a34a" }}>● LIVE</div>
           <div>SELLER PULSE</div>
@@ -185,7 +185,7 @@ export default function MarcusVignette() {
         {answeredTopics.filter(topic => !selected || topic.id !== selected.id).map(topic => (
           <div key={topic.id} style={{ animation: "fadeUp 0.4s ease" }}>
             <div style={{
-              fontSize: 11, color: "#374151", marginBottom: 10,
+              fontSize: 11, color: "#6b7280", marginBottom: 10,
               display: "flex", alignItems: "center", gap: 8
             }}>
               <span style={{ color: TAG_COLORS[topic.tag], fontSize: 9, letterSpacing: "0.12em" }}>
@@ -207,7 +207,7 @@ export default function MarcusVignette() {
         {selected && (
           <div style={{ animation: "fadeUp 0.4s ease" }}>
             <div style={{
-              fontSize: 11, color: "#374151", marginBottom: 10,
+              fontSize: 11, color: "#6b7280", marginBottom: 10,
               display: "flex", alignItems: "center", gap: 8
             }}>
               <span style={{ color: TAG_COLORS[selected.tag], fontSize: 9, letterSpacing: "0.12em" }}>
@@ -234,7 +234,7 @@ export default function MarcusVignette() {
         {showClose && (
           <div style={{
             marginTop: 8, paddingTop: 24,
-            borderTop: "1px solid #111124",
+            borderTop: "1px solid #1e1e2e",
             fontSize: 13, color: "#4b5563",
             letterSpacing: "0.06em", lineHeight: 1.8,
             animation: "fadeUp 0.8s ease"
@@ -251,14 +251,14 @@ export default function MarcusVignette() {
       {/* Prompt selector */}
       {!showClose && (
         <div style={{
-          borderTop: "1px solid #111124",
+          borderTop: "1px solid #1e1e2e",
           background: "#080812",
           padding: "18px 32px"
         }}>
           {remaining.length > 0 && (
             <>
               <div style={{
-                fontSize: 9, color: "#1f2937",
+                fontSize: 9, color: "#6b7280",
                 letterSpacing: "0.18em", marginBottom: 12
               }}>ASK MARCUS</div>
               <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>

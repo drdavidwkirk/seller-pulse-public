@@ -3,13 +3,13 @@ import { useState, useEffect, useRef } from "react";
 // ─── SEQUENCE ─────────────────────────────────────────────────────────────────
 const SEQUENCE = [
   // ACT 1 — THE PROVOCATION
-  { type: "line", text: "You bought a SaaS business.", size: 32, color: "#f1f5f9", weight: 700, bg: "#07070f", hold: 2200 },
-  { type: "line", text: "You're selling a consumption story.", size: 28, color: "#94a3b8", weight: 400, bg: "#07070f", hold: 2200 },
-  { type: "line", text: "And your CRO is still forecasting\nlike it's 2019.", size: 26, color: "#f87171", weight: 600, bg: "#07070f", hold: 2800 },
-  { type: "pause", bg: "#07070f", hold: 800 },
-  { type: "line", text: "The PE firm has a meeting\nin ninety days.", size: 24, color: "#94a3b8", weight: 400, bg: "#07070f", hold: 2400 },
-  { type: "line", text: "How confident are you\nin that number?", size: 30, color: "#f1f5f9", weight: 700, bg: "#07070f", hold: 3000 },
-  { type: "pause", bg: "#07070f", hold: 600 },
+  { type: "line", text: "You bought a SaaS business.", size: 32, color: "#f1f5f9", weight: 700, bg: "#07070f", hold: 2530 },
+  { type: "line", text: "You're selling a consumption story.", size: 28, color: "#94a3b8", weight: 400, bg: "#07070f", hold: 2530 },
+  { type: "line", text: "And your CRO is still forecasting\nlike it's 2019.", size: 26, color: "#f87171", weight: 600, bg: "#07070f", hold: 3220 },
+  { type: "pause", bg: "#07070f", hold: 920 },
+  { type: "line", text: "The PE firm has a meeting\nin ninety days.", size: 24, color: "#94a3b8", weight: 400, bg: "#07070f", hold: 2760 },
+  { type: "line", text: "How confident are you\nin that number?", size: 30, color: "#f1f5f9", weight: 700, bg: "#07070f", hold: 3450 },
+  { type: "pause", bg: "#07070f", hold: 690 },
 
   // ACT 2 — THE PLAYERS ASSEMBLE
   {
@@ -17,46 +17,46 @@ const SEQUENCE = [
     avatar: "MH", name: "MARCUS HALE", role: "CRO",
     line: "I don't report the news.\nI make it.",
     avatarBg: "#1e1b4b", avatarBorder: "#6d28d9", avatarColor: "#c4b5fd",
-    accent: "#a78bfa", bg: "#07070f", hold: 3000
+    accent: "#a78bfa", bg: "#07070f", hold: 3450
   },
   {
     type: "player",
-    avatar: "CF", name: "THE CFO", role: "GROWTH PARTNER",
+    avatar: "FI", name: "FIONA", role: "CFO · GROWTH PARTNER",
     line: "Show me a number\nI can defend.",
     avatarBg: "#0a1628", avatarBorder: "#1d4ed8", avatarColor: "#93c5fd",
-    accent: "#60a5fa", bg: "#07070f", hold: 3000
+    accent: "#60a5fa", bg: "#07070f", hold: 3450
   },
   {
     type: "player",
     avatar: "JC", name: "JAMES CALLOWAY", role: "RVP",
     line: "I need to know\nbefore week nine.",
     avatarBg: "#0f1a10", avatarBorder: "#15803d", avatarColor: "#86efac",
-    accent: "#34d399", bg: "#07070f", hold: 2800
+    accent: "#34d399", bg: "#07070f", hold: 3220
   },
   {
     type: "player",
     avatar: "SH", name: "SOPHIE HARTLEY", role: "RSM",
     line: "I was already\nin the deal.",
     avatarBg: "#1c1200", avatarBorder: "#92400e", avatarColor: "#fcd34d",
-    accent: "#f59e0b", bg: "#07070f", hold: 2800
+    accent: "#f59e0b", bg: "#07070f", hold: 3220
   },
   {
     type: "player",
     avatar: "LO", name: "LIAM O'BRIEN", role: "SELLER",
     line: "I knew.\nI just hadn't said it yet.",
     avatarBg: "#0f1f0f", avatarBorder: "#166534", avatarColor: "#86efac",
-    accent: "#34d399", bg: "#07070f", hold: 2800
+    accent: "#34d399", bg: "#07070f", hold: 3220
   },
 
   // ACT 3 — THE FOUR PRINCIPLES
-  { type: "tenet", number: "01", text: "Make the news.", sub: "Don't report it.", accent: "#a78bfa", hold: 2200 },
-  { type: "tenet", number: "02", text: "Pipeline health\nis everything.", sub: "All else follows.", accent: "#34d399", hold: 2200 },
-  { type: "tenet", number: "03", text: "Coaching is why\nteams win.", sub: null, accent: "#f59e0b", hold: 2200 },
-  { type: "tenet", number: "04", text: "Revenue\ncures all ills.", sub: null, accent: "#60a5fa", hold: 3600 },
-  { type: "pause", bg: "#07070f", hold: 1000 },
+  { type: "tenet", number: "01", text: "Make the news.", sub: "Don't report it.", accent: "#a78bfa", hold: 2530 },
+  { type: "tenet", number: "02", text: "Pipeline health\nis everything.", sub: "All else follows.", accent: "#34d399", hold: 2530 },
+  { type: "tenet", number: "03", text: "Coaching is why\nteams win.", sub: null, accent: "#f59e0b", hold: 2530 },
+  { type: "tenet", number: "04", text: "Revenue\ncures all ills.", sub: null, accent: "#60a5fa", hold: 4140 },
+  { type: "pause", bg: "#07070f", hold: 1150 },
 
   // ACT 4 — THE CLOSE
-  { type: "close", hold: 5000 },
+  { type: "close", hold: 5750 },
 ];
 
 // ─── HOOKS ────────────────────────────────────────────────────────────────────
@@ -259,7 +259,7 @@ function CloseFrame({ active }) {
       {l4 && (
         <div style={{
           width: 40, height: 1,
-          background: "#374151",
+          background: "#6b7280",
           margin: "24px auto",
           animation: "fadeIn 0.8s ease"
         }} />
@@ -274,7 +274,7 @@ function CloseFrame({ active }) {
           animation: "fadeIn 1s ease 0.3s both"
         }}>
           Revenue cures all ills.<br />
-          <span style={{ color: "#374151" }}>But only if you build the culture to earn it.</span>
+          <span style={{ color: "#6b7280" }}>But only if you build the culture to earn it.</span>
         </div>
       )}
 
@@ -297,7 +297,7 @@ function CloseFrame({ active }) {
             <div style={{ fontSize: 11, color: "#f1f5f9", letterSpacing: "0.08em", fontFamily: "'DM Mono', monospace" }}>
               DAVID KIRK
             </div>
-            <div style={{ fontSize: 9, color: "#374151", letterSpacing: "0.12em", fontFamily: "'DM Mono', monospace" }}>
+            <div style={{ fontSize: 9, color: "#6b7280", letterSpacing: "0.12em", fontFamily: "'DM Mono', monospace" }}>
               COMMERCIAL EFFECTIVENESS
             </div>
           </div>
@@ -395,13 +395,13 @@ export default function MoviePreview() {
             }}>
               {/* Film mark */}
               <div style={{
-                fontSize: 9, letterSpacing: "0.3em", color: "#1f2937",
+                fontSize: 9, letterSpacing: "0.3em", color: "#4b5563",
                 marginBottom: 40, fontFamily: "'DM Mono', monospace"
               }}>● ● ●</div>
 
               <div style={{
                 fontSize: 11, letterSpacing: "0.25em",
-                color: "#374151", marginBottom: 20,
+                color: "#6b7280", marginBottom: 20,
                 fontFamily: "'DM Mono', monospace"
               }}>SELLER PULSE</div>
 
@@ -414,7 +414,7 @@ export default function MoviePreview() {
               }}>The movie<br />starts here.</div>
 
               <div style={{
-                fontSize: 13, color: "#374151",
+                fontSize: 13, color: "#6b7280",
                 lineHeight: 1.8, marginBottom: 48,
                 maxWidth: 260
               }}>
@@ -473,7 +473,7 @@ export default function MoviePreview() {
             }}>
               <div style={{
                 fontSize: 9, letterSpacing: "0.25em",
-                color: "#374151", fontFamily: "'DM Mono', monospace"
+                color: "#6b7280", fontFamily: "'DM Mono', monospace"
               }}>THE STORY CONTINUES</div>
 
               <div style={{
@@ -489,26 +489,26 @@ export default function MoviePreview() {
               }} />
 
               <div style={{
-                fontSize: 10, color: "#374151",
+                fontSize: 10, color: "#6b7280",
                 letterSpacing: "0.12em", lineHeight: 2,
                 fontFamily: "'DM Mono', monospace"
               }}>
                 DAVID KIRK<br />
-                <span style={{ color: "#1f2937" }}>COMMERCIAL EFFECTIVENESS</span>
+                <span style={{ color: "#4b5563" }}>COMMERCIAL EFFECTIVENESS</span>
               </div>
 
               <button onClick={reset} style={{
                 marginTop: 16,
                 background: "transparent",
-                border: "1px solid #1f2937",
+                border: "1px solid #4b5563",
                 borderRadius: 40, padding: "10px 28px",
-                color: "#374151", fontSize: 10,
+                color: "#6b7280", fontSize: 10,
                 letterSpacing: "0.15em", cursor: "pointer",
                 fontFamily: "'DM Mono', monospace",
                 transition: "all 0.2s"
               }}
-                onMouseEnter={e => e.currentTarget.style.borderColor = "#374151"}
-                onMouseLeave={e => e.currentTarget.style.borderColor = "#1f2937"}
+                onMouseEnter={e => e.currentTarget.style.borderColor = "#6b7280"}
+                onMouseLeave={e => e.currentTarget.style.borderColor = "#4b5563"}
               >↺ WATCH AGAIN</button>
             </div>
           )}

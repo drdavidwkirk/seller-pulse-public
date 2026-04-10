@@ -118,9 +118,9 @@ const CAT_CONFIG = {
 };
 
 const AVATAR = {
-  CFO:    { bg: "#0a1628", border: "#1d4ed8", color: "#93c5fd", label: "CFO" },
+  CFO:    { bg: "#0a1628", border: "#1d4ed8", color: "#93c5fd", label: "FI" },
   MARCUS: { bg: "#1e1b4b", border: "#6d28d9", color: "#c4b5fd", label: "MH" },
-  SYSTEM: { bg: "#0a0a14", border: "#374151", color: "#6b7280", label: "S" },
+  SYSTEM: { bg: "#0a0a14", border: "#6b7280", color: "#6b7280", label: "S" },
 };
 
 const fmt = v => `£${(v / 1000).toFixed(0)}k`;
@@ -147,6 +147,8 @@ function ActiveMessage({ msg, onDone }) {
 }
 
 // ─── BUBBLE ───────────────────────────────────────────────────────────────────
+const DISPLAY_NAME = { CFO: "FIONA", MARCUS: "MARCUS", SYSTEM: "SYSTEM" };
+
 function Bubble({ msg, displayText, isTyping }) {
   const isCFO = msg.from === "CFO";
   const isSystem = msg.from === "SYSTEM";
@@ -224,7 +226,7 @@ function Bubble({ msg, displayText, isTyping }) {
             : "#4c1d95",
           marginBottom: 4
         }}>
-          {msg.from}{msg.context ? " · COMMERCIAL CONTEXT" : ""}
+          {DISPLAY_NAME[msg.from] || msg.from}{msg.context ? " · COMMERCIAL CONTEXT" : ""}
         </div>
         {text}
         {isTyping && text.length < msg.text.length && (
@@ -288,15 +290,15 @@ function DealBoard({ deals, flashId, movedId }) {
   return (
     <div style={{
       background: "#080812",
-      borderLeft: "1px solid #111124",
+      borderLeft: "1px solid #1e1e2e",
       display: "flex", flexDirection: "column",
       height: "100%", overflow: "hidden"
     }}>
       {/* Board header */}
-      <div style={{ padding: "16px 18px 12px", borderBottom: "1px solid #111124" }}>
+      <div style={{ padding: "16px 18px 12px", borderBottom: "1px solid #1e1e2e" }}>
         <div style={{
           fontSize: 9, letterSpacing: "0.18em",
-          color: "#374151", marginBottom: 12
+          color: "#6b7280", marginBottom: 12
         }}>LIVE PIPELINE · THIS MONTH</div>
 
         {/* Numbers */}
@@ -309,7 +311,7 @@ function DealBoard({ deals, flashId, movedId }) {
               background: "#0d0d18", border: "1px solid #1a1a2e",
               borderRadius: 7, padding: "8px 10px"
             }}>
-              <div style={{ fontSize: 7, color: "#374151", letterSpacing: "0.12em" }}>{s.label}</div>
+              <div style={{ fontSize: 7, color: "#6b7280", letterSpacing: "0.12em" }}>{s.label}</div>
               <div style={{ fontSize: 18, fontWeight: 700, color: s.color, marginTop: 2 }}>{s.val}</div>
             </div>
           ))}
@@ -341,9 +343,9 @@ function DealBoard({ deals, flashId, movedId }) {
         <div style={{
           marginTop: 8, padding: "7px 10px",
           background: "#0a0a0a",
-          border: "1px solid #111124",
+          border: "1px solid #1e1e2e",
           borderRadius: 7,
-          fontSize: 9, color: "#374151", lineHeight: 1.6
+          fontSize: 9, color: "#6b7280", lineHeight: 1.6
         }}>
           <span style={{ color: "#1d4ed8" }}>PE REVIEW</span> · 47 days ·{" "}
           <span style={{ color: "#f87171" }}>£380k short on exit run rate</span>
@@ -371,7 +373,7 @@ function DealBoard({ deals, flashId, movedId }) {
             </div>
             <div style={{ display: "flex", flexDirection: "column", gap: 5 }}>
               {section.length === 0
-                ? <div style={{ fontSize: 10, color: "#1f2937", padding: "4px 0" }}>—</div>
+                ? <div style={{ fontSize: 10, color: "#4b5563", padding: "4px 0" }}>—</div>
                 : section.map(d => (
                   <DealCard
                     key={d.id} deal={d}
@@ -414,7 +416,7 @@ export default function CFOConversation() {
   const moveDeal = (id, to) => {
     setDeals(prev => prev.map(d => d.id === id ? { ...d, category: to } : d));
     setMovedId(id);
-    setTimeout(() => setMovedId(null), 2000);
+    setTimeout(() => setMovedId(null), 2645);
   };
 
   const playNext = (idx) => {
@@ -445,7 +447,7 @@ export default function CFOConversation() {
       setTimeout(() => moveDeal(msg.moveDeal.id, msg.moveDeal.to), 300);
     }
 
-    timerRef.current = setTimeout(() => playNext(idx + 1), 350);
+    timerRef.current = setTimeout(() => playNext(idx + 1), 464);
   };
 
   const start = () => {
@@ -475,12 +477,12 @@ export default function CFOConversation() {
       {/* Header */}
       <div style={{
         padding: "14px 22px",
-        borderBottom: "1px solid #111124",
+        borderBottom: "1px solid #1e1e2e",
         display: "flex", alignItems: "center", justifyContent: "space-between"
       }}>
         <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
           {[
-            { label: "CF", name: "CFO", sub: "GROWTH PARTNER", bg: "#0a1628", border: "#1d4ed8", color: "#93c5fd" },
+            { label: "FI", name: "FIONA", sub: "GROWTH PARTNER · CFO", bg: "#0a1628", border: "#1d4ed8", color: "#93c5fd" },
             { label: "MH", name: "MARCUS HALE", sub: "CRO", bg: "#1e1b4b", border: "#6d28d9", color: "#c4b5fd" },
           ].map(p => (
             <div key={p.label} style={{ display: "flex", alignItems: "center", gap: 8 }}>
@@ -503,9 +505,9 @@ export default function CFOConversation() {
           disabled={playing}
           style={{
             background: "transparent",
-            border: `1px solid ${done ? "#1d4ed8" : playing ? "#1f2937" : "#1d4ed8"}`,
+            border: `1px solid ${done ? "#1d4ed8" : playing ? "#4b5563" : "#1d4ed8"}`,
             borderRadius: 8, padding: "8px 18px",
-            color: done ? "#93c5fd" : playing ? "#374151" : "#93c5fd",
+            color: done ? "#93c5fd" : playing ? "#6b7280" : "#93c5fd",
             fontSize: 10, letterSpacing: "0.12em",
             cursor: playing ? "not-allowed" : "pointer",
             transition: "all 0.2s"
@@ -532,9 +534,9 @@ export default function CFOConversation() {
               alignItems: "center", justifyContent: "center",
               padding: "32px 28px", textAlign: "center", gap: 14
             }}>
-              <div style={{ fontSize: 13, color: "#374151", lineHeight: 1.9, maxWidth: 300 }}>
-                The CFO doesn't look at charts.<br />
-                <span style={{ color: "#4b5563" }}>He asks questions that make<br />people defend their numbers.</span>
+              <div style={{ fontSize: 13, color: "#6b7280", lineHeight: 1.9, maxWidth: 300 }}>
+                Fiona doesn't look at charts.<br />
+                <span style={{ color: "#4b5563" }}>She asks questions that make<br />people defend their numbers.</span>
               </div>
               <div style={{
                 marginTop: 8, padding: "12px 18px",
@@ -545,7 +547,7 @@ export default function CFOConversation() {
               }}>
                 "What have you got for me this month."
               </div>
-              <div style={{ fontSize: 9, color: "#1f2937", letterSpacing: "0.15em", marginTop: 8 }}>
+              <div style={{ fontSize: 9, color: "#4b5563", letterSpacing: "0.15em", marginTop: 8 }}>
                 PRESS BEGIN SESSION
               </div>
             </div>
@@ -572,13 +574,13 @@ export default function CFOConversation() {
           {done && (
             <div style={{
               padding: "14px 20px",
-              borderTop: "1px solid #111124",
+              borderTop: "1px solid #1e1e2e",
               background: "#07070f",
               fontSize: 11, color: "#4b5563",
               lineHeight: 1.8, animation: "fadeUp 0.6s ease"
             }}>
               Commit is a contract.<br />
-              <span style={{ color: "#6b7280" }}>The CFO holds everyone to it — including himself.</span>
+              <span style={{ color: "#6b7280" }}>Fiona holds everyone to it — including herself.</span>
             </div>
           )}
         </div>

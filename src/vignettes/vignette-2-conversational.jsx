@@ -140,16 +140,16 @@ function DealBoard({ deals, flashId }) {
   return (
     <div style={{
       background: "#080812",
-      borderLeft: "1px solid #111124",
+      borderLeft: "1px solid #1e1e2e",
       display: "flex", flexDirection: "column",
       height: "100%", overflow: "hidden"
     }}>
       {/* Board header */}
       <div style={{
         padding: "18px 20px 14px",
-        borderBottom: "1px solid #111124"
+        borderBottom: "1px solid #1e1e2e"
       }}>
-        <div style={{ fontSize: 9, letterSpacing: "0.18em", color: "#374151", marginBottom: 12 }}>
+        <div style={{ fontSize: 9, letterSpacing: "0.18em", color: "#6b7280", marginBottom: 12 }}>
           LIAM O'BRIEN · LIVE PIPELINE
         </div>
         <div style={{ display: "flex", gap: 16 }}>
@@ -159,7 +159,7 @@ function DealBoard({ deals, flashId }) {
             { label: "TOTAL", val: fmt(total), color: "#60a5fa" },
           ].map(s => (
             <div key={s.label}>
-              <div style={{ fontSize: 8, color: "#374151", letterSpacing: "0.12em" }}>{s.label}</div>
+              <div style={{ fontSize: 8, color: "#6b7280", letterSpacing: "0.12em" }}>{s.label}</div>
               <div style={{ fontSize: 14, fontWeight: 600, color: s.color, marginTop: 2 }}>{s.val}</div>
             </div>
           ))}
@@ -181,7 +181,7 @@ function DealBoard({ deals, flashId }) {
               </div>
               <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
                 {catDeals.length === 0 ? (
-                  <div style={{ fontSize: 11, color: "#1f2937", padding: "8px 0" }}>—</div>
+                  <div style={{ fontSize: 11, color: "#4b5563", padding: "8px 0" }}>—</div>
                 ) : catDeals.map(d => (
                   <DealCard key={d.id} deal={d} flash={d.id === flashId} />
                 ))}
@@ -243,11 +243,11 @@ export default function ConversationalUpdate() {
           d.id === "OPP-001" ? { ...d, category: "UPSIDE", updated: true } : d
         ));
         setFlashId("OPP-001");
-        setTimeout(() => setFlashId(null), 2000);
+        setTimeout(() => setFlashId(null), 2645);
       }, 400);
     }
 
-    timerRef.current = setTimeout(() => playNext(idx + 1), 300);
+    timerRef.current = setTimeout(() => playNext(idx + 1), 397);
   };
 
   const start = () => {
@@ -278,7 +278,7 @@ export default function ConversationalUpdate() {
       {/* Header */}
       <div style={{
         padding: "16px 24px",
-        borderBottom: "1px solid #111124",
+        borderBottom: "1px solid #1e1e2e",
         display: "flex", alignItems: "center", justifyContent: "space-between"
       }}>
         <div>
@@ -294,9 +294,9 @@ export default function ConversationalUpdate() {
           disabled={playing}
           style={{
             background: "transparent",
-            border: `1px solid ${done ? "#0891b2" : playing ? "#1f2937" : "#6d28d9"}`,
+            border: `1px solid ${done ? "#0891b2" : playing ? "#4b5563" : "#6d28d9"}`,
             borderRadius: 8, padding: "8px 18px",
-            color: done ? "#67e8f9" : playing ? "#374151" : "#c4b5fd",
+            color: done ? "#67e8f9" : playing ? "#6b7280" : "#c4b5fd",
             fontSize: 10, letterSpacing: "0.12em",
             cursor: playing ? "not-allowed" : "pointer",
             transition: "all 0.2s"
@@ -331,11 +331,11 @@ export default function ConversationalUpdate() {
                 display: "flex", alignItems: "center", justifyContent: "center",
                 fontSize: 12, fontWeight: 700, color: "#86efac"
               }}>LO</div>
-              <div style={{ fontSize: 12, color: "#374151", lineHeight: 1.8, maxWidth: 300 }}>
+              <div style={{ fontSize: 12, color: "#6b7280", lineHeight: 1.8, maxWidth: 300 }}>
                 Liam O'Brien is about to update his pipeline.<br />
                 <span style={{ color: "#4b5563" }}>No form. No CRM. Just a conversation.</span>
               </div>
-              <div style={{ fontSize: 9, color: "#1f2937", letterSpacing: "0.15em", marginTop: 8 }}>
+              <div style={{ fontSize: 9, color: "#4b5563", letterSpacing: "0.15em", marginTop: 8 }}>
                 PRESS PLAY TO BEGIN
               </div>
             </div>
@@ -362,8 +362,8 @@ export default function ConversationalUpdate() {
           {done && (
             <div style={{
               padding: "14px 20px",
-              borderTop: "1px solid #111124",
-              fontSize: 10, color: "#374151",
+              borderTop: "1px solid #1e1e2e",
+              fontSize: 10, color: "#6b7280",
               letterSpacing: "0.1em", lineHeight: 1.8
             }}>
               Liam started with a Commit he couldn't defend.<br />
