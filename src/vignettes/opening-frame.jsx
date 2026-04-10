@@ -2,12 +2,12 @@ import { useState, useEffect, useRef } from "react";
 
 const LINES = [
   { text: "It's a discipline gap.", size: 32, weight: 700, color: "#f1f5f9", delay: 0, family: "syne" },
-  { text: "Clean pipeline.", size: 24, weight: 600, color: "#a78bfa", delay: 920, family: "syne" },
-  { text: "Personal accountability.", size: 24, weight: 600, color: "#a78bfa", delay: 1610, family: "syne" },
-  { text: "A coaching culture that actually scales.", size: 24, weight: 600, color: "#a78bfa", delay: 2300, family: "syne" },
-  { text: "We've closed that gap before.", size: 20, weight: 400, color: "#94a3b8", delay: 3450, family: "mono" },
-  { text: "A dozen times.", size: 20, weight: 400, color: "#94a3b8", delay: 4140, family: "mono" },
-  { text: "Different names. Same playbook.", size: 20, weight: 600, color: "#f1f5f9", delay: 5060, family: "mono" },
+  { text: "Clean pipeline.", size: 24, weight: 600, color: "#a78bfa", delay:  1013, family: "syne" },
+  { text: "Personal accountability.", size: 24, weight: 600, color: "#a78bfa", delay:  1772, family: "syne" },
+  { text: "A coaching culture that actually scales.", size: 24, weight: 600, color: "#a78bfa", delay:  2530, family: "syne" },
+  { text: "We've closed that gap before.", size: 20, weight: 400, color: "#94a3b8", delay:  3796, family: "mono" },
+  { text: "A dozen times.", size: 20, weight: 400, color: "#94a3b8", delay:  4554, family: "mono" },
+  { text: "Different names. Same playbook.", size: 20, weight: 600, color: "#f1f5f9", delay:  5566, family: "mono" },
 ];
 
 export default function OpeningFrame() {
@@ -25,7 +25,7 @@ export default function OpeningFrame() {
     );
 
     timers.current.push(
-      setTimeout(() => setShowTagline(true), 7406)
+      setTimeout(() => setShowTagline(true),  8147)
     );
   };
 

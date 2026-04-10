@@ -56,7 +56,7 @@ const SEQUENCE = [
   { type: "pause", bg: "#07070f", hold: 1150 },
 
   // ACT 4 — THE CLOSE
-  { type: "close", hold: 5750 },
+  { type: "close", hold: 9000 },
 ];
 
 // ─── HOOKS ────────────────────────────────────────────────────────────────────

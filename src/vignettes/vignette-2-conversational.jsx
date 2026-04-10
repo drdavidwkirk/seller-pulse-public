@@ -142,7 +142,8 @@ function DealBoard({ deals, flashId }) {
       background: "#080812",
       borderLeft: "1px solid #1e1e2e",
       display: "flex", flexDirection: "column",
-      height: "100%", overflow: "hidden"
+      position: "sticky", top: 0,
+      height: "100vh", overflow: "auto"
     }}>
       {/* Board header */}
       <div style={{
@@ -310,13 +311,14 @@ export default function ConversationalUpdate() {
       <div style={{
         flex: 1, display: "grid",
         gridTemplateColumns: "1fr 1fr",
-        overflow: "hidden",
-        minHeight: "calc(100vh - 60px)"
+        overflow: "auto",
+        minHeight: "calc(100vh - 60px)",
+        alignItems: "start"
       }}>
         {/* Left — chat */}
         <div style={{
           display: "flex", flexDirection: "column",
-          overflow: "hidden"
+          minHeight: "calc(100vh - 60px)"
         }}>
           {/* Scene setter */}
           {messages.length === 0 && !activeMsg && (

@@ -36,7 +36,7 @@ const FRAMES = [
     accent: "#a78bfa",
     truth: "You're in the room.\nYou have the data.\nThe question is whether you're\ndescribing what happened —\nor deciding what happens next.",
     mirror: "When did you last\nmake the news?",
-    hold: 5750,
+    hold: 6958,
   },
 
   // ── TENET 2 ───────────────────────────────────────────────────────────────
@@ -60,7 +60,7 @@ const FRAMES = [
     accent: "#34d399",
     truth: "He had a £340k deal in Commit.\nThe economic buyer had been\ndark for three weeks.\nHe knew.\nHe just hadn't said it yet.",
     mirror: "A bad quarter isn't a\nclosing problem.\nIt's a pipeline problem\nnobody named\nthree months ago.",
-    hold: 6325,
+    hold: 6958,
   },
 
   // ── TENET 3 ───────────────────────────────────────────────────────────────
@@ -84,7 +84,7 @@ const FRAMES = [
     accent: "#f59e0b",
     truth: "She didn't wait for the\nproblem to reach her.\nShe was already in the deal.\nAsking the question\nLiam needed to hear.",
     mirror: "Talent gets you\ninto the game.\nCoaching wins it.",
-    hold: 5750,
+    hold: 6958,
   },
 
   // ── TENET 4 ───────────────────────────────────────────────────────────────
@@ -108,7 +108,7 @@ const FRAMES = [
     accent: "#60a5fa",
     truth: "Your CRO just presented\nthe forecast.\nHow much of it do\nyou actually believe?",
     mirror: "The pipeline is not\na sales metric.\nIt is a business\nhealth metric.",
-    hold: 5750,
+    hold: 6958,
   },
 
   // ── CHRO MIRROR ───────────────────────────────────────────────────────────
@@ -123,7 +123,7 @@ const FRAMES = [
     accent: "#e879f9",
     truth: "You invested in\nleadership development.\nYour best salespeople\nare still being managed\nby a quota and a dashboard.",
     mirror: "Coaching at scale\nisn't a programme.\nIt's a culture.\nSet by the leader.\nEvery week.",
-    hold: 6325,
+    hold: 6958,
   },
 
   // ── CLOSE ─────────────────────────────────────────────────────────────────
@@ -138,7 +138,7 @@ const FRAMES = [
       { text: "And they do something about it", size: 16, color: "#6b7280", weight: 400, delay: 2300 },
       { text: "while there's still time.", size: 16, color: "#94a3b8", weight: 500, delay: 2760 },
     ],
-    hold: 5750,
+    hold: 6958,
   },
 ];
 

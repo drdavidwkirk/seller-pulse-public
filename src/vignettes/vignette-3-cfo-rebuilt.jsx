@@ -292,7 +292,8 @@ function DealBoard({ deals, flashId, movedId }) {
       background: "#080812",
       borderLeft: "1px solid #1e1e2e",
       display: "flex", flexDirection: "column",
-      height: "100%", overflow: "hidden"
+      position: "sticky", top: 0,
+      height: "100vh", overflow: "auto"
     }}>
       {/* Board header */}
       <div style={{ padding: "16px 18px 12px", borderBottom: "1px solid #1e1e2e" }}>
@@ -521,11 +522,12 @@ export default function CFOConversation() {
       <div style={{
         flex: 1, display: "grid",
         gridTemplateColumns: "1.1fr 1fr",
-        overflow: "hidden",
-        minHeight: "calc(100vh - 62px)"
+        overflow: "auto",
+        minHeight: "calc(100vh - 62px)",
+        alignItems: "start"
       }}>
         {/* Left — conversation */}
-        <div style={{ display: "flex", flexDirection: "column", overflow: "hidden" }}>
+        <div style={{ display: "flex", flexDirection: "column", minHeight: "calc(100vh - 62px)" }}>
 
           {/* Pre-play */}
           {!playing && !done && (
