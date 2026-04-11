@@ -110,16 +110,16 @@ function CategoryPill({ deal }) {
   const isS = !deal.jamesOverride && !!deal.sophieOverride;
 
   const styles = {
-    Commit:   { bg: "#0e2214", color: "#4ec99a", border: "transparent" },
-    Upside:   { bg: "#0e1a30", color: "#5a8dee", border: "transparent" },
-    Pipeline: { bg: "#181820", color: "#505070", border: "transparent" },
-    Risk:     { bg: "#2a0e0e", color: "#e85555", border: "transparent" },
+    Commit:   { bg: "#0d3028", color: "#34d399", border: "transparent" },
+    Upside:   { bg: "#162040", color: "#7eb8f7", border: "transparent" },
+    Pipeline: { bg: "#1e2340", color: "#9090b8", border: "transparent" },
+    Risk:     { bg: "#3a1515", color: "#f87171", border: "transparent" },
   };
 
   const s = isJ
-    ? { bg: "#1a1230", color: "#9d8fee", border: "#3a2f90" }
+    ? { bg: "#231a48", color: "#c4b8ff", border: "#6254c8" }
     : isS
-    ? { bg: "#0a2018", color: "#4ec99a", border: "#1a5a44" }
+    ? { bg: "#0d3028", color: "#34d399", border: "#1a6a50" }
     : styles[eff] || styles.Pipeline;
 
   return (
@@ -237,40 +237,40 @@ export default function JamesView() {
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Syne:wght@600;700&display=swap');
         * { box-sizing: border-box; }
-        body { margin: 0; background: #0a0a0f; }
+        body { margin: 0; background: #111827; }
         ::-webkit-scrollbar { width: 4px; }
         ::-webkit-scrollbar-track { background: transparent; }
-        ::-webkit-scrollbar-thumb { background: #2a2a40; border-radius: 2px; }
-        @keyframes sp-pulse { 0%,100% { opacity: 0.2; } 50% { opacity: 1; } }
+        ::-webkit-scrollbar-thumb { background: #374151; border-radius: 2px; }
+        @keyframes sp-pulse { 0%,100% { opacity: 0.3; } 50% { opacity: 1; } }
         .sp-dot-1 { animation: sp-pulse 1.2s ease-in-out 0.0s infinite; }
         .sp-dot-2 { animation: sp-pulse 1.2s ease-in-out 0.2s infinite; }
         .sp-dot-3 { animation: sp-pulse 1.2s ease-in-out 0.4s infinite; }
-        .sp-prompt:hover { border-color: #4a3aaa !important; color: #9d8fee !important; }
-        .sp-send:hover { background: #2a1e6e !important; }
-        .sp-input:focus { border-color: #4a3aaa !important; outline: none; }
+        .sp-prompt:hover { border-color: #7c6fe0 !important; color: #b8adf5 !important; }
+        .sp-send:hover { background: #3730a3 !important; }
+        .sp-input:focus { border-color: #7c6fe0 !important; outline: none; }
         .sp-deal { transition: background 0.3s ease, border-color 0.3s ease; }
       `}</style>
 
-      <div style={{ minHeight: "100vh", background: "#0a0a0f", color: "#e0e0ec", fontFamily: "'DM Mono', 'Courier New', monospace", display: "flex", flexDirection: "column" }}>
+      <div style={{ minHeight: "100vh", background: "#111827", color: "#f1f0fc", fontFamily: "'DM Mono', 'Courier New', monospace", display: "flex", flexDirection: "column" }}>
 
         {/* ── Header ── */}
-        <div style={{ borderBottom: "1px solid #1a1a28", padding: "14px 24px", display: "flex", alignItems: "center", justifyContent: "space-between", background: "#080810", flexShrink: 0 }}>
+        <div style={{ borderBottom: "1px solid #2d2d4a", padding: "14px 24px", display: "flex", alignItems: "center", justifyContent: "space-between", background: "#0f1120", flexShrink: 0 }}>
           <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
-            <div style={{ width: 36, height: 36, borderRadius: "50%", background: "#1a1240", border: "1px solid #4a3aaa", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 11, fontWeight: 600, color: "#9d8fee", flexShrink: 0 }}>JC</div>
+            <div style={{ width: 36, height: 36, borderRadius: "50%", background: "#2e2470", border: "1px solid #7c6fe0", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 11, fontWeight: 600, color: "#c4b8ff", flexShrink: 0 }}>JC</div>
             <div>
-              <div style={{ fontSize: 13, fontWeight: 600, fontFamily: "'Syne', sans-serif", color: "#e0e0ec" }}>James Calloway</div>
-              <div style={{ fontSize: 9, color: "#404060", letterSpacing: "0.08em", marginTop: 2 }}>RVP · MAKE THE NEWS</div>
+              <div style={{ fontSize: 13, fontWeight: 600, fontFamily: "'Syne', sans-serif", color: "#f1f0fc" }}>James Calloway</div>
+              <div style={{ fontSize: 9, color: "#7070a0", letterSpacing: "0.08em", marginTop: 2 }}>RVP · MAKE THE NEWS</div>
             </div>
           </div>
           <div style={{ display: "flex", gap: 24 }}>
             {[
-              { label: "Q2 COMMIT", value: fmt(commit), color: "#9d8fee" },
-              { label: "Q2 UPSIDE", value: fmt(upside), color: "#5a8dee" },
-              { label: "QUOTA", value: fmt(QUOTA), color: "#404060" },
-              { label: "COVERAGE", value: `${coverage}%`, color: coverage >= 100 ? "#4ec99a" : "#e8884a" },
+              { label: "Q2 COMMIT", value: fmt(commit), color: "#b8adf5" },
+              { label: "Q2 UPSIDE", value: fmt(upside), color: "#7eb8f7" },
+              { label: "QUOTA", value: fmt(QUOTA), color: "#6b7280" },
+              { label: "COVERAGE", value: `${coverage}%`, color: coverage >= 100 ? "#34d399" : "#f59e0b" },
             ].map(({ label, value, color }) => (
               <div key={label} style={{ textAlign: "right" }}>
-                <div style={{ fontSize: 9, color: "#404060", letterSpacing: "0.08em" }}>{label}</div>
+                <div style={{ fontSize: 9, color: "#7070a0", letterSpacing: "0.08em" }}>{label}</div>
                 <div style={{ fontSize: 16, fontWeight: 600, color, fontVariantNumeric: "tabular-nums" }}>{value}</div>
               </div>
             ))}
@@ -281,12 +281,12 @@ export default function JamesView() {
         <div style={{ flex: 1, display: "flex", overflow: "hidden", minHeight: 0 }}>
 
           {/* ── Chat Panel ── */}
-          <div style={{ width: "44%", borderRight: "1px solid #1a1a28", display: "flex", flexDirection: "column", minHeight: 0 }}>
+          <div style={{ width: "44%", borderRight: "1px solid #2d2d4a", display: "flex", flexDirection: "column", minHeight: 0 }}>
 
             {/* Chat header */}
-            <div style={{ padding: "10px 18px", borderBottom: "1px solid #1a1a28", display: "flex", alignItems: "center", gap: 8, flexShrink: 0 }}>
-              <div style={{ width: 7, height: 7, borderRadius: "50%", background: "#9d8fee" }} />
-              <span style={{ fontSize: 10, color: "#9d8fee", letterSpacing: "0.08em" }}>PIPELINE — AI FORECAST INTELLIGENCE</span>
+            <div style={{ padding: "10px 18px", borderBottom: "1px solid #2d2d4a", display: "flex", alignItems: "center", gap: 8, flexShrink: 0 }}>
+              <div style={{ width: 7, height: 7, borderRadius: "50%", background: "#b8adf5" }} />
+              <span style={{ fontSize: 10, color: "#b8adf5", letterSpacing: "0.08em" }}>PIPELINE — AI FORECAST INTELLIGENCE</span>
             </div>
 
             {/* Messages */}
@@ -295,21 +295,21 @@ export default function JamesView() {
                 <div key={i} style={{ marginBottom: 18 }}>
                   {msg.role === "user" ? (
                     <div style={{ textAlign: "right" }}>
-                      <span style={{ display: "inline-block", background: "#14141e", border: "1px solid #222234", borderRadius: 8, padding: "8px 12px", fontSize: 12, color: "#a0a0c0", maxWidth: "82%", textAlign: "left", lineHeight: 1.65 }}>
+                      <span style={{ display: "inline-block", background: "#1e2340", border: "1px solid #3a3d5c", borderRadius: 8, padding: "8px 12px", fontSize: 12, color: "#d0d0f0", maxWidth: "82%", textAlign: "left", lineHeight: 1.65 }}>
                         {msg.content}
                       </span>
                     </div>
                   ) : (
                     <div style={{ display: "flex", gap: 9, alignItems: "flex-start" }}>
-                      <div style={{ width: 26, height: 26, borderRadius: "50%", background: "#100e26", border: "1px solid #342a88", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 9, color: "#9d8fee", flexShrink: 0, marginTop: 2 }}>P</div>
-                      <div style={{ background: "#0d0d18", border: "1px solid #1a1a2a", borderRadius: 8, padding: "10px 13px", fontSize: 12, color: "#a0a0c0", lineHeight: 1.75, maxWidth: "87%" }}>
+                      <div style={{ width: 26, height: 26, borderRadius: "50%", background: "#2e2470", border: "1px solid #6254c8", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 9, color: "#c4b8ff", flexShrink: 0, marginTop: 2 }}>P</div>
+                      <div style={{ background: "#181f38", border: "1px solid #2d3252", borderRadius: 8, padding: "10px 13px", fontSize: 12, color: "#d0d0f0", lineHeight: 1.75, maxWidth: "87%" }}>
                         <div style={{ whiteSpace: "pre-line" }}>{msg.content.reply}</div>
 
                         {/* Override receipts */}
                         {msg.content.actions?.overrides?.length > 0 && (
-                          <div style={{ marginTop: 10, paddingTop: 8, borderTop: "1px solid #1a1a2a" }}>
+                          <div style={{ marginTop: 10, paddingTop: 8, borderTop: "1px solid #2d3252" }}>
                             {msg.content.actions.overrides.map((ov, j) => (
-                              <div key={j} style={{ fontSize: 10, color: "#9d8fee", marginBottom: 3 }}>
+                              <div key={j} style={{ fontSize: 10, color: "#b8adf5", marginBottom: 3 }}>
                                 ↗ {ov.dealId} → <strong>{ov.newCategory}</strong> — {ov.reason}
                               </div>
                             ))}
@@ -318,7 +318,7 @@ export default function JamesView() {
 
                         {/* Narrative */}
                         {msg.content.actions?.narrative && (
-                          <div style={{ marginTop: 10, paddingTop: 8, borderTop: "1px solid #1a1a2a", fontStyle: "italic", color: "#8888aa", fontSize: 11, lineHeight: 1.85 }}>
+                          <div style={{ marginTop: 10, paddingTop: 8, borderTop: "1px solid #2d3252", fontStyle: "italic", color: "#a0a8cc", fontSize: 11, lineHeight: 1.85 }}>
                             "{msg.content.actions.narrative}"
                           </div>
                         )}
@@ -331,10 +331,10 @@ export default function JamesView() {
               {/* Typing indicator */}
               {loading && (
                 <div style={{ display: "flex", gap: 9, alignItems: "flex-start", marginBottom: 18 }}>
-                  <div style={{ width: 26, height: 26, borderRadius: "50%", background: "#100e26", border: "1px solid #342a88", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 9, color: "#9d8fee", flexShrink: 0 }}>P</div>
-                  <div style={{ background: "#0d0d18", border: "1px solid #1a1a2a", borderRadius: 8, padding: "12px 14px", display: "flex", gap: 5, alignItems: "center" }}>
+                  <div style={{ width: 26, height: 26, borderRadius: "50%", background: "#2e2470", border: "1px solid #6254c8", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 9, color: "#c4b8ff", flexShrink: 0 }}>P</div>
+                  <div style={{ background: "#181f38", border: "1px solid #2d3252", borderRadius: 8, padding: "12px 14px", display: "flex", gap: 5, alignItems: "center" }}>
                     {[1, 2, 3].map(n => (
-                      <div key={n} className={`sp-dot-${n}`} style={{ width: 5, height: 5, borderRadius: "50%", background: "#9d8fee" }} />
+                      <div key={n} className={`sp-dot-${n}`} style={{ width: 5, height: 5, borderRadius: "50%", background: "#b8adf5" }} />
                     ))}
                   </div>
                 </div>
@@ -344,25 +344,25 @@ export default function JamesView() {
             </div>
 
             {/* Suggested prompts */}
-            <div style={{ padding: "8px 18px", borderTop: "1px solid #1a1a28", display: "flex", flexWrap: "wrap", gap: 5, flexShrink: 0 }}>
+            <div style={{ padding: "8px 18px", borderTop: "1px solid #2d2d4a", display: "flex", flexWrap: "wrap", gap: 5, flexShrink: 0 }}>
               {PROMPTS.map((p, i) => (
-                <button key={i} className="sp-prompt" onClick={() => sendMessage(p)} style={{ background: "transparent", border: "1px solid #1e1e36", borderRadius: 20, padding: "3px 10px", fontSize: 10, color: "#50507a", cursor: "pointer", fontFamily: "inherit", transition: "all 0.15s" }}>
+                <button key={i} className="sp-prompt" onClick={() => sendMessage(p)} style={{ background: "transparent", border: "1px solid #2d3252", borderRadius: 20, padding: "3px 10px", fontSize: 10, color: "#7070a0", cursor: "pointer", fontFamily: "inherit", transition: "all 0.15s" }}>
                   {p}
                 </button>
               ))}
             </div>
 
             {/* Input */}
-            <div style={{ padding: "10px 18px", borderTop: "1px solid #1a1a28", display: "flex", gap: 8, flexShrink: 0 }}>
+            <div style={{ padding: "10px 18px", borderTop: "1px solid #2d2d4a", display: "flex", gap: 8, flexShrink: 0 }}>
               <input
                 className="sp-input"
                 value={input}
                 onChange={e => setInput(e.target.value)}
                 onKeyDown={e => e.key === "Enter" && sendMessage(input)}
                 placeholder="Ask Pipeline anything..."
-                style={{ flex: 1, background: "#0d0d18", border: "1px solid #1e1e30", borderRadius: 7, padding: "9px 12px", fontSize: 12, color: "#e0e0ec", fontFamily: "inherit", transition: "border-color 0.15s" }}
+                style={{ flex: 1, background: "#181f38", border: "1px solid #2d3252", borderRadius: 7, padding: "9px 12px", fontSize: 12, color: "#f1f0fc", fontFamily: "inherit", transition: "border-color 0.15s" }}
               />
-              <button className="sp-send" onClick={() => sendMessage(input)} style={{ background: "#18104a", border: "1px solid #4a3aaa", borderRadius: 7, padding: "9px 16px", color: "#9d8fee", cursor: "pointer", fontSize: 11, fontFamily: "inherit", transition: "background 0.15s" }}>
+              <button className="sp-send" onClick={() => sendMessage(input)} style={{ background: "#2e2470", border: "1px solid #7c6fe0", borderRadius: 7, padding: "9px 16px", color: "#c4b8ff", cursor: "pointer", fontSize: 11, fontFamily: "inherit", transition: "background 0.15s" }}>
                 Send
               </button>
             </div>
@@ -370,16 +370,16 @@ export default function JamesView() {
 
           {/* ── Deal Board ── */}
           <div style={{ flex: 1, overflowY: "auto", padding: "18px 20px" }}>
-            <div style={{ fontSize: 9, color: "#404060", letterSpacing: "0.08em", marginBottom: 16 }}>DEAL BOARD — 17 OPPORTUNITIES</div>
+            <div style={{ fontSize: 9, color: "#7070a0", letterSpacing: "0.08em", marginBottom: 16 }}>DEAL BOARD — 17 OPPORTUNITIES</div>
 
             {SELLERS.map(seller => {
               const sellerDeals = deals.filter(d => d.seller === seller);
               const total = sellerDeals.reduce((s, d) => s + d.value, 0);
               return (
                 <div key={seller} style={{ marginBottom: 20 }}>
-                  <div style={{ fontSize: 10, color: "#58587a", marginBottom: 7, display: "flex", justifyContent: "space-between" }}>
+                  <div style={{ fontSize: 10, color: "#9090b8", marginBottom: 7, display: "flex", justifyContent: "space-between" }}>
                     <span>{seller}</span>
-                    <span style={{ color: "#404060", fontVariantNumeric: "tabular-nums" }}>{fmt(total)}</span>
+                    <span style={{ color: "#7070a0", fontVariantNumeric: "tabular-nums" }}>{fmt(total)}</span>
                   </div>
                   {sellerDeals.map(deal => {
                     const isHl = highlights.includes(deal.id);
@@ -389,8 +389,8 @@ export default function JamesView() {
                         key={deal.id}
                         className="sp-deal"
                         style={{
-                          background: isHl ? "#120e28" : "#0d0d16",
-                          border: `1px solid ${isHl ? "#4a3aaa" : flag === "high" ? "#4a1818" : "#161622"}`,
+                          background: isHl ? "#231a48" : "#192038",
+                          border: `1px solid ${isHl ? "#7c6fe0" : flag === "high" ? "#7a2020" : "#2d3252"}`,
                           borderRadius: 6,
                           padding: "7px 10px",
                           marginBottom: 5,
@@ -401,16 +401,16 @@ export default function JamesView() {
                         }}
                       >
                         <div>
-                          <div style={{ fontSize: 11, color: isHl ? "#c8b4ff" : "#9090b0" }}>{deal.account}</div>
-                          <div style={{ fontSize: 9, color: "#2a2a44", marginTop: 1 }}>{deal.id}</div>
+                          <div style={{ fontSize: 11, color: isHl ? "#d8c8ff" : "#c0c0e0" }}>{deal.account}</div>
+                          <div style={{ fontSize: 9, color: "#505070", marginTop: 1 }}>{deal.id}</div>
                         </div>
-                        <div style={{ fontSize: 11, color: "#606080", textAlign: "right", fontVariantNumeric: "tabular-nums" }}>{fmt(deal.value)}</div>
+                        <div style={{ fontSize: 11, color: "#9090b8", textAlign: "right", fontVariantNumeric: "tabular-nums" }}>{fmt(deal.value)}</div>
                         <div style={{ textAlign: "center" }}>
                           <CategoryPill deal={deal} />
                         </div>
-                        <div style={{ fontSize: 9, color: "#303048", textAlign: "right" }}>
+                        <div style={{ fontSize: 9, color: "#606080", textAlign: "right" }}>
                           {deal.quarter}
-                          {flag && <span style={{ marginLeft: 4, color: flag === "high" ? "#cc4444" : "#cc8844" }}>⚑</span>}
+                          {flag && <span style={{ marginLeft: 4, color: flag === "high" ? "#f87171" : "#fbbf24" }}>⚑</span>}
                         </div>
                       </div>
                     );
@@ -420,15 +420,15 @@ export default function JamesView() {
             })}
 
             {/* Legend */}
-            <div style={{ marginTop: 24, paddingTop: 16, borderTop: "1px solid #141420", display: "flex", gap: 16, flexWrap: "wrap" }}>
+            <div style={{ marginTop: 24, paddingTop: 16, borderTop: "1px solid #2d3252", display: "flex", gap: 16, flexWrap: "wrap" }}>
               {[
-                { label: "Seller", color: "#505070", bg: "#181820" },
-                { label: "Sophie override", color: "#4ec99a", bg: "#0a2018", border: "#1a5a44" },
-                { label: "James override", color: "#9d8fee", bg: "#1a1230", border: "#3a2f90" },
+                { label: "Seller", color: "#9090b8", bg: "#192038", border: "#2d3252" },
+                { label: "Sophie override", color: "#34d399", bg: "#0d3028", border: "#1a6a50" },
+                { label: "James override", color: "#c4b8ff", bg: "#231a48", border: "#6254c8" },
               ].map(({ label, color, bg, border }) => (
                 <div key={label} style={{ display: "flex", alignItems: "center", gap: 6 }}>
-                  <span style={{ display: "inline-block", background: bg, color, border: `1px solid ${border || "transparent"}`, borderRadius: 4, padding: "1px 8px", fontSize: 9 }}>eg</span>
-                  <span style={{ fontSize: 10, color: "#404060" }}>{label}</span>
+                  <span style={{ display: "inline-block", background: bg, color, border: `1px solid ${border}`, borderRadius: 4, padding: "1px 8px", fontSize: 9 }}>eg</span>
+                  <span style={{ fontSize: 10, color: "#7070a0" }}>{label}</span>
                 </div>
               ))}
             </div>
