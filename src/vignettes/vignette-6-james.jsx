@@ -35,61 +35,6 @@ const PROMPTS = [
   "Flag anything that's drifting",
 ];
 
-// ─── AI System Prompt ─────────────────────────────────────────────────────────
-
-const SYSTEM_PROMPT = `You are Pipeline, the AI forecast intelligence for James Calloway, RVP at a global people consulting firm.
-James manages five sellers through Sophie Hartley (RSM).
-
-SELLERS (Q2 quotas):
-- Liam O'Brien: $300K
-- Priya Sharma: $250K
-- Tom Ashworth: $225K
-- Chloe Bennett: $275K
-- Dev Patel: $200K
-TEAM Q2 QUOTA: $1,250,000
-HIERARCHY: James Calloway (RVP) → Isabelle Renard (SVP) → Marcus Hale (CRO)
-
-PIPELINE — 17 DEALS:
-OPP-100023 | Accenture           | Liam O'Brien  | $85K  | Commit   | Q2
-OPP-100031 | Deloitte            | Liam O'Brien  | $120K | Commit   | Q2
-OPP-100045 | PricewaterhouseCoopers | Liam O'Brien | $65K | Upside  | Q2 [no activity 3 weeks]
-OPP-100058 | KPMG                | Liam O'Brien  | $200K | Pipeline | Q3
-OPP-100067 | Unilever            | Priya Sharma  | $95K  | Commit   | Q2
-OPP-100072 | Procter & Gamble    | Priya Sharma  | $140K | Upside   | Q2
-OPP-100089 | Nestlé              | Priya Sharma  | $75K  | Pipeline | Q3
-OPP-100094 | Barclays            | Tom Ashworth  | $110K | Sophie overrode Commit → Upside | Q2 [Tom has not corrected]
-OPP-100103 | HSBC                | Tom Ashworth  | $180K | Upside   | Q2 [no next step logged 14 days]
-OPP-100117 | NatWest             | Tom Ashworth  | $60K  | Pipeline | Q3
-OPP-100126 | Amazon Web Services | Chloe Bennett | $220K | Commit   | Q2
-OPP-100134 | Microsoft           | Chloe Bennett | $90K  | Upside   | Q2
-OPP-100148 | Google              | Chloe Bennett | $160K | Pipeline | Q3
-OPP-100155 | Vodafone            | Dev Patel     | $75K  | Commit   | Q2
-OPP-100163 | BT Group            | Dev Patel     | $130K | Upside   | Q2
-OPP-100177 | O2 (Telefónica)     | Dev Patel     | $55K  | Pipeline | Q3
-OPP-100182 | Sky                 | Dev Patel     | $185K | Pipeline | Q3 [no champion identified]
-
-KEY INTELLIGENCE:
-- Q2 Commit (raw): $705K. Sophie's Barclays override drops effective commit to $595K until Tom corrects.
-- HSBC ($180K) is the largest single upside deal — stale, no next step in 14 days.
-- Sky ($185K) is high-value but Q3 with no champion — risk of slipping to Q4.
-- PwC ($65K) — 3 weeks no activity, close date unchanged.
-- Chloe Bennett is the standout performer — AWS commit solid, clean pipeline discipline.
-- Tom Ashworth has not corrected Barclays after Sophie's override — accountability gap.
-
-YOUR ROLE: Speak directly to James in plain language. Be specific — name deals, sellers, numbers.
-Be honest about risk. Never soften uncomfortable truths. You are a trusted thinking partner, not a reporting tool.
-
-ALWAYS respond with ONLY valid JSON — no markdown, no preamble, no trailing text:
-{
-  "reply": "your response to James (use \\n for line breaks)",
-  "actions": {
-    "overrides": [{ "dealId": "OPP-XXXXXX", "newCategory": "Commit|Upside|Pipeline|Risk", "reason": "one line reason" }],
-    "flags": [{ "dealId": "OPP-XXXXXX", "level": "high|medium", "reason": "one line reason" }],
-    "narrative": null
-  },
-  "highlights": ["OPP-XXXXXX"]
-}`;
-
 // ─── Opening message ──────────────────────────────────────────────────────────
 
 const OPENING = {
@@ -180,56 +125,102 @@ export default function JamesView() {
     return { updatedDeals: updated, updatedFlags: newFlags };
   }, []);
 
+  const getMockResponse = (text) => {
+    const q = text.toLowerCase();
+
+    if (q.includes("where are we") || q.includes("q2")) {
+      return {
+        reply: `Here's the honest picture, James.\n\nRaw commit is $705K — but Sophie's override on Barclays ($110K) drops your effective commit to $595K until Tom corrects his submission. That's 48% of quota with 5 weeks left.\n\nUpside adds $715K on paper. Realistically, HSBC ($180K) is stale — no next step in 14 days. Strip that out and your working upside is $535K.\n\nBest case: $1.13M. You need $1.25M. The gap is real.\n\nTwo conversations need to happen today: Tom on Barclays, and whoever owns HSBC next steps.`,
+        actions: { overrides: [], flags: [], narrative: null },
+        highlights: ["OPP-100094", "OPP-100103"],
+      };
+    }
+
+    if (q.includes("worried") || q.includes("risk") || q.includes("flag")) {
+      return {
+        reply: `Four deals need your attention.\n\nHSBC ($180K) — Tom Ashworth, Upside, Q2. No next step logged in 14 days. This is your biggest single risk. If it slips to Q3 your upside number falls off a cliff.\n\nBarclays ($110K) — Sophie moved it from Commit to Upside. Tom hasn't corrected. That $110K is sitting in two buckets simultaneously right now.\n\nSky ($185K) — Dev Patel, Q3. High value, no champion identified. Risk of drifting to Q4 without intervention.\n\nPwC ($65K) — Liam O'Brien, Upside, Q2. Three weeks no activity. Close date hasn't moved. Someone needs to call this one.`,
+        actions: {
+          overrides: [],
+          flags: [
+            { dealId: "OPP-100103", level: "high", reason: "No next step 14 days — Q2 upside at risk" },
+            { dealId: "OPP-100094", level: "high", reason: "Sophie override unresolved — Tom hasn't corrected" },
+            { dealId: "OPP-100182", level: "medium", reason: "No champion identified — Q3 slip risk" },
+            { dealId: "OPP-100045", level: "medium", reason: "3 weeks no activity — close date stale" },
+          ],
+          narrative: null,
+        },
+        highlights: ["OPP-100103", "OPP-100094", "OPP-100182", "OPP-100045"],
+      };
+    }
+
+    if (q.includes("narrative") || q.includes("isabelle")) {
+      return {
+        reply: `Here's a draft narrative for Isabelle.\n\nReady to copy when you are:`,
+        actions: {
+          overrides: [],
+          flags: [],
+          narrative: "Q2 commit stands at $595K effective against $1.25M quota. Upside of $535K (ex-HSBC pending next step) gives us a realistic range of $1.08M–$1.13M. Key risk: HSBC ($180K) needs next step by end of week or moves to Q3. Barclays correction in progress — Tom Ashworth revising submission. Chloe Bennett is tracking clean; AWS ($220K) commit solid. Focused on closing the $120K gap through HSBC acceleration and PwC reactivation.",
+        },
+        highlights: ["OPP-100103", "OPP-100126"],
+      };
+    }
+
+    if (q.includes("tom") || q.includes("ashworth")) {
+      return {
+        reply: `Tom's pipeline tells a mixed story.\n\nHe has three deals totalling $350K. On paper that's 156% coverage against his $225K quota.\n\nBut look closer:\n\nBarclays ($110K) — Sophie moved it from Commit to Upside last week. Tom hasn't corrected his submission. That's an accountability gap you need to close today.\n\nHSBC ($180K) — his biggest deal. No next step logged in 14 days. This is either moving or it isn't, and right now you can't tell which.\n\nNatWest ($60K) is clean Pipeline for Q3.\n\nTom's Q2 position is weaker than his headline number suggests. I'd have that conversation before the week is out.`,
+        actions: {
+          overrides: [],
+          flags: [
+            { dealId: "OPP-100094", level: "high", reason: "Unresolved Sophie override — seller correction outstanding" },
+            { dealId: "OPP-100103", level: "high", reason: "Largest upside deal — stale, no next step" },
+          ],
+          narrative: null,
+        },
+        highlights: ["OPP-100094", "OPP-100103", "OPP-100117"],
+      };
+    }
+
+    if (q.includes("drift") || q.includes("slip") || q.includes("stale")) {
+      return {
+        reply: `Three deals showing drift signals.\n\nPwC ($65K, Liam O'Brien) — last activity 3 weeks ago. Close date unchanged. Classic stale upside. Needs a call this week or a close date push.\n\nHSBC ($180K, Tom Ashworth) — 14 days no next step. For your biggest upside deal, that's too long. Either there's news Tom hasn't logged, or the deal is drifting.\n\nSky ($185K, Dev Patel) — Q3, no champion identified. Still early, but $185K without a named champion at this stage is a risk. Dev needs to answer the champion question before your next forecast call.\n\nEverything else is moving cleanly. Chloe Bennett's pipeline in particular is well maintained.`,
+        actions: {
+          overrides: [],
+          flags: [
+            { dealId: "OPP-100045", level: "medium", reason: "3 weeks no activity" },
+            { dealId: "OPP-100103", level: "high", reason: "14 days no next step" },
+            { dealId: "OPP-100182", level: "medium", reason: "No champion identified" },
+          ],
+          narrative: null,
+        },
+        highlights: ["OPP-100045", "OPP-100103", "OPP-100182"],
+      };
+    }
+
+    // Default fallback
+    return {
+      reply: `Good question. Here's my read based on the current pipeline.\n\nYour cleanest performers are Chloe Bennett (AWS commit solid at $220K, disciplined pipeline) and Priya Sharma (Unilever commit holding, P&G upside progressing).\n\nThe pressure points are in Tom Ashworth's book — Barclays and HSBC both need intervention this week.\n\nDev Patel's Q3 pipeline ($240K across Nestlé, O2 and Sky) looks strong on paper but Sky needs a champion before you can rely on it.\n\nWhat specifically do you want to dig into?`,
+      actions: { overrides: [], flags: [], narrative: null },
+      highlights: ["OPP-100126", "OPP-100094", "OPP-100103"],
+    };
+  };
+
   const sendMessage = async (text) => {
     if (!text?.trim() || loading) return;
-    const userMsg = { role: "user", content: text };
-    const newMessages = [...messages, userMsg];
-    setMessages(newMessages);
+    setMessages(prev => [...prev, { role: "user", content: text }]);
     setInput("");
     setLoading(true);
     setHighlights([]);
 
-    try {
-      const apiMessages = newMessages.map(m => ({
-        role: m.role,
-        content: m.role === "assistant" ? JSON.stringify(m.content) : m.content,
-      }));
+    // Simulate Pipeline thinking
+    await new Promise(resolve => setTimeout(resolve, 1200 + Math.random() * 800));
 
-      const response = await fetch("https://api.anthropic.com/v1/messages", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          model: "claude-sonnet-4-20250514",
-          max_tokens: 1000,
-          system: SYSTEM_PROMPT,
-          messages: apiMessages,
-        }),
-      });
-
-      const data = await response.json();
-      const raw = (data.content || []).map(i => i.text || "").join("");
-
-      let parsed;
-      try {
-        parsed = JSON.parse(raw.replace(/```json|```/g, "").trim());
-      } catch {
-        parsed = { reply: raw, actions: { overrides: [], flags: [], narrative: null }, highlights: [] };
-      }
-
-      if (parsed.highlights?.length) setHighlights(parsed.highlights);
-
-      const { updatedDeals, updatedFlags } = applyActions(parsed.actions, deals, flags);
-      setDeals(updatedDeals);
-      setFlags(updatedFlags);
-      setMessages(prev => [...prev, { role: "assistant", content: parsed }]);
-    } catch {
-      setMessages(prev => [...prev, {
-        role: "assistant",
-        content: { reply: "Connection issue — please try again.", actions: { overrides: [], flags: [], narrative: null }, highlights: [] },
-      }]);
-    } finally {
-      setLoading(false);
-    }
+    const response = getMockResponse(text);
+    if (response.highlights?.length) setHighlights(response.highlights);
+    const { updatedDeals, updatedFlags } = applyActions(response.actions, deals, flags);
+    setDeals(updatedDeals);
+    setFlags(updatedFlags);
+    setMessages(prev => [...prev, { role: "assistant", content: response }]);
+    setLoading(false);
   };
 
   return (
