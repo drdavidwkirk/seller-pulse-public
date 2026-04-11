@@ -7,6 +7,7 @@ import Conversational from './vignettes/vignette-2-conversational'
 import CFO from './vignettes/vignette-3-cfo-rebuilt'
 import CoachingLayer from './vignettes/vignette-4-coaching-layer'
 import CHRO from './vignettes/vignette-5-chro-rebuilt'
+import James from './vignettes/vignette-6-james'
 
 export default function App() {
   return (
@@ -20,6 +21,7 @@ export default function App() {
         <Route path="/cfo"      element={<CFO />} />
         <Route path="/coaching" element={<CoachingLayer />} />
         <Route path="/chro"     element={<CHRO />} />
+        <Route path="/james"    element={<James />} />
         <Route path="/"         element={<MoviePreview />} />
       </Routes>
     </BrowserRouter>
