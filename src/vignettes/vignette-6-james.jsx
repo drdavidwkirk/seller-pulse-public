@@ -6,23 +6,23 @@ const QUOTA = 1250000;
 const fmt = (n) => "$" + Math.round(n / 1000) + "K";
 
 const INITIAL_DEALS = [
-  { id: "OPP-100023", account: "Accenture",          seller: "Liam O'Brien",   value: 85000,  category: "Commit",   quarter: "Q2", sophieOverride: null,     jamesOverride: null, jamesReason: null, risk: null },
-  { id: "OPP-100031", account: "Deloitte",            seller: "Liam O'Brien",   value: 120000, category: "Commit",   quarter: "Q2", sophieOverride: null,     jamesOverride: null, jamesReason: null, risk: null },
-  { id: "OPP-100045", account: "PricewaterhouseCoopers", seller: "Liam O'Brien", value: 65000, category: "Upside",  quarter: "Q2", sophieOverride: null,     jamesOverride: null, jamesReason: null, risk: null },
-  { id: "OPP-100058", account: "KPMG",               seller: "Liam O'Brien",   value: 200000, category: "Pipeline", quarter: "Q3", sophieOverride: null,     jamesOverride: null, jamesReason: null, risk: null },
-  { id: "OPP-100067", account: "Unilever",            seller: "Priya Sharma",   value: 95000,  category: "Commit",   quarter: "Q2", sophieOverride: null,     jamesOverride: null, jamesReason: null, risk: null },
-  { id: "OPP-100072", account: "Procter & Gamble",    seller: "Priya Sharma",   value: 140000, category: "Upside",   quarter: "Q2", sophieOverride: null,     jamesOverride: null, jamesReason: null, risk: null },
-  { id: "OPP-100089", account: "Nestlé",              seller: "Priya Sharma",   value: 75000,  category: "Pipeline", quarter: "Q3", sophieOverride: null,     jamesOverride: null, jamesReason: null, risk: null },
-  { id: "OPP-100094", account: "Barclays",            seller: "Tom Ashworth",   value: 110000, category: "Commit",   quarter: "Q2", sophieOverride: "Upside", jamesOverride: null, jamesReason: null, risk: null },
-  { id: "OPP-100103", account: "HSBC",                seller: "Tom Ashworth",   value: 180000, category: "Upside",   quarter: "Q2", sophieOverride: null,     jamesOverride: null, jamesReason: null, risk: null },
-  { id: "OPP-100117", account: "NatWest",             seller: "Tom Ashworth",   value: 60000,  category: "Pipeline", quarter: "Q3", sophieOverride: null,     jamesOverride: null, jamesReason: null, risk: null },
-  { id: "OPP-100126", account: "Amazon Web Services", seller: "Chloe Bennett",  value: 220000, category: "Commit",   quarter: "Q2", sophieOverride: null,     jamesOverride: null, jamesReason: null, risk: null },
-  { id: "OPP-100134", account: "Microsoft",           seller: "Chloe Bennett",  value: 90000,  category: "Upside",   quarter: "Q2", sophieOverride: null,     jamesOverride: null, jamesReason: null, risk: null },
-  { id: "OPP-100148", account: "Google",              seller: "Chloe Bennett",  value: 160000, category: "Pipeline", quarter: "Q3", sophieOverride: null,     jamesOverride: null, jamesReason: null, risk: null },
-  { id: "OPP-100155", account: "Vodafone",            seller: "Dev Patel",      value: 75000,  category: "Commit",   quarter: "Q2", sophieOverride: null,     jamesOverride: null, jamesReason: null, risk: null },
-  { id: "OPP-100163", account: "BT Group",            seller: "Dev Patel",      value: 130000, category: "Upside",   quarter: "Q2", sophieOverride: null,     jamesOverride: null, jamesReason: null, risk: null },
-  { id: "OPP-100177", account: "O2 (Telefónica)",     seller: "Dev Patel",      value: 55000,  category: "Pipeline", quarter: "Q3", sophieOverride: null,     jamesOverride: null, jamesReason: null, risk: null },
-  { id: "OPP-100182", account: "Sky",                 seller: "Dev Patel",      value: 185000, category: "Pipeline", quarter: "Q3", sophieOverride: null,     jamesOverride: null, jamesReason: null, risk: null },
+  { id: "OPP-100023", account: "Meridian Group",      seller: "Liam O'Brien",   value: 85000,  category: "Commit",   quarter: "Q2", sophieOverride: null,     jamesOverride: null, jamesReason: null, risk: null },
+  { id: "OPP-100031", account: "Ashton & Co",         seller: "Liam O'Brien",   value: 120000, category: "Commit",   quarter: "Q2", sophieOverride: null,     jamesOverride: null, jamesReason: null, risk: null },
+  { id: "OPP-100045", account: "Vertex Systems",      seller: "Liam O'Brien",   value: 65000,  category: "Upside",   quarter: "Q2", sophieOverride: null,     jamesOverride: null, jamesReason: null, risk: null },
+  { id: "OPP-100058", account: "Crestline UK",        seller: "Liam O'Brien",   value: 200000, category: "Pipeline", quarter: "Q3", sophieOverride: null,     jamesOverride: null, jamesReason: null, risk: null },
+  { id: "OPP-100067", account: "Hartwell Group",      seller: "Priya Sharma",   value: 95000,  category: "Commit",   quarter: "Q2", sophieOverride: null,     jamesOverride: null, jamesReason: null, risk: null },
+  { id: "OPP-100072", account: "Caldera Partners",    seller: "Priya Sharma",   value: 140000, category: "Upside",   quarter: "Q2", sophieOverride: null,     jamesOverride: null, jamesReason: null, risk: null },
+  { id: "OPP-100089", account: "Renfield & Sons",     seller: "Priya Sharma",   value: 75000,  category: "Pipeline", quarter: "Q3", sophieOverride: null,     jamesOverride: null, jamesReason: null, risk: null },
+  { id: "OPP-100094", account: "Kirkstone Capital",   seller: "Tom Ashworth",   value: 110000, category: "Commit",   quarter: "Q2", sophieOverride: "Upside", jamesOverride: null, jamesReason: null, risk: null },
+  { id: "OPP-100103", account: "Dunmore Financial",   seller: "Tom Ashworth",   value: 180000, category: "Upside",   quarter: "Q2", sophieOverride: null,     jamesOverride: null, jamesReason: null, risk: null },
+  { id: "OPP-100117", account: "Pemberton Trust",     seller: "Tom Ashworth",   value: 60000,  category: "Pipeline", quarter: "Q3", sophieOverride: null,     jamesOverride: null, jamesReason: null, risk: null },
+  { id: "OPP-100126", account: "Apex Cloud Solutions",seller: "Chloe Bennett",  value: 220000, category: "Commit",   quarter: "Q2", sophieOverride: null,     jamesOverride: null, jamesReason: null, risk: null },
+  { id: "OPP-100134", account: "Northgate Systems",   seller: "Chloe Bennett",  value: 90000,  category: "Upside",   quarter: "Q2", sophieOverride: null,     jamesOverride: null, jamesReason: null, risk: null },
+  { id: "OPP-100148", account: "Ironveil Technologies",seller: "Chloe Bennett", value: 160000, category: "Pipeline", quarter: "Q3", sophieOverride: null,     jamesOverride: null, jamesReason: null, risk: null },
+  { id: "OPP-100155", account: "Redwood Telecom",     seller: "Dev Patel",      value: 75000,  category: "Commit",   quarter: "Q2", sophieOverride: null,     jamesOverride: null, jamesReason: null, risk: null },
+  { id: "OPP-100163", account: "Castleford Networks", seller: "Dev Patel",      value: 130000, category: "Upside",   quarter: "Q2", sophieOverride: null,     jamesOverride: null, jamesReason: null, risk: null },
+  { id: "OPP-100177", account: "Prism Mobile",        seller: "Dev Patel",      value: 55000,  category: "Pipeline", quarter: "Q3", sophieOverride: null,     jamesOverride: null, jamesReason: null, risk: null },
+  { id: "OPP-100182", account: "Horizon Connect",     seller: "Dev Patel",      value: 185000, category: "Pipeline", quarter: "Q3", sophieOverride: null,     jamesOverride: null, jamesReason: null, risk: null },
 ];
 
 const SELLERS = ["Liam O'Brien", "Priya Sharma", "Tom Ashworth", "Chloe Bennett", "Dev Patel"];
@@ -38,7 +38,7 @@ const PROMPTS = [
 // ─── Opening message ──────────────────────────────────────────────────────────
 
 const OPENING = {
-  reply: `Good morning, James.\n\nYour Q2 commit stands at $705K against a $1.25M team quota — 56% of target with 5 weeks remaining.\n\nTwo things need your attention today:\n\nSophie has moved Barclays ($110K) from Commit to Upside. Tom hasn't corrected his submission. That gap is live in your forecast right now.\n\nHSBC ($180K) is your biggest upside deal and has had no next step logged in 14 days.\n\nWhat do you want to look at first?`,
+  reply: `Good morning, James.\n\nYour Q2 commit stands at $705K against a $1.25M team quota — 56% of target with 5 weeks remaining.\n\nTwo things need your attention today:\n\nSophie has moved Kirkstone Capital ($110K) from Commit to Upside. Tom hasn't corrected his submission. That gap is live in your forecast right now.\n\nDunmore Financial ($180K) is your biggest upside deal and has had no next step logged in 14 days.\n\nWhat do you want to look at first?`,
   actions: { overrides: [], flags: [], narrative: null },
   highlights: ["OPP-100094", "OPP-100103"],
 };
@@ -130,7 +130,7 @@ export default function JamesView() {
 
     if (q.includes("where are we") || q.includes("q2")) {
       return {
-        reply: `Here's the honest picture, James.\n\nRaw commit is $705K — but Sophie's override on Barclays ($110K) drops your effective commit to $595K until Tom corrects his submission. That's 48% of quota with 5 weeks left.\n\nUpside adds $715K on paper. Realistically, HSBC ($180K) is stale — no next step in 14 days. Strip that out and your working upside is $535K.\n\nBest case: $1.13M. You need $1.25M. The gap is real.\n\nTwo conversations need to happen today: Tom on Barclays, and whoever owns HSBC next steps.`,
+        reply: `Here's the honest picture, James.\n\nRaw commit is $705K — but Sophie's override on Kirkstone Capital ($110K) drops your effective commit to $595K until Tom corrects his submission. That's 48% of quota with 5 weeks left.\n\nUpside adds $715K on paper. Realistically, Dunmore Financial ($180K) is stale — no next step in 14 days. Strip that out and your working upside is $535K.\n\nBest case: $1.13M. You need $1.25M. The gap is real.\n\nTwo conversations need to happen today: Tom on Kirkstone Capital, and whoever owns Dunmore Financial next steps.`,
         actions: { overrides: [], flags: [], narrative: null },
         highlights: ["OPP-100094", "OPP-100103"],
       };
@@ -138,7 +138,7 @@ export default function JamesView() {
 
     if (q.includes("worried") || q.includes("risk") || q.includes("flag")) {
       return {
-        reply: `Four deals need your attention.\n\nHSBC ($180K) — Tom Ashworth, Upside, Q2. No next step logged in 14 days. This is your biggest single risk. If it slips to Q3 your upside number falls off a cliff.\n\nBarclays ($110K) — Sophie moved it from Commit to Upside. Tom hasn't corrected. That $110K is sitting in two buckets simultaneously right now.\n\nSky ($185K) — Dev Patel, Q3. High value, no champion identified. Risk of drifting to Q4 without intervention.\n\nPwC ($65K) — Liam O'Brien, Upside, Q2. Three weeks no activity. Close date hasn't moved. Someone needs to call this one.`,
+        reply: `Four deals need your attention.\n\nDunmore Financial ($180K) — Tom Ashworth, Upside, Q2. No next step logged in 14 days. This is your biggest single risk. If it slips to Q3 your upside number falls off a cliff.\n\nKirkstone Capital ($110K) — Sophie moved it from Commit to Upside. Tom hasn't corrected. That $110K is sitting in two buckets simultaneously right now.\n\nHorizon Connect ($185K) — Dev Patel, Q3. High value, no champion identified. Risk of drifting to Q4 without intervention.\n\nVertex Systems ($65K) — Liam O'Brien, Upside, Q2. Three weeks no activity. Close date hasn't moved. Someone needs to call this one.`,
         actions: {
           overrides: [],
           flags: [
@@ -159,7 +159,7 @@ export default function JamesView() {
         actions: {
           overrides: [],
           flags: [],
-          narrative: "Q2 commit stands at $595K effective against $1.25M quota. Upside of $535K (ex-HSBC pending next step) gives us a realistic range of $1.08M–$1.13M. Key risk: HSBC ($180K) needs next step by end of week or moves to Q3. Barclays correction in progress — Tom Ashworth revising submission. Chloe Bennett is tracking clean; AWS ($220K) commit solid. Focused on closing the $120K gap through HSBC acceleration and PwC reactivation.",
+          narrative: "Q2 commit stands at $595K effective against $1.25M quota. Upside of $535K (ex-Dunmore Financial pending next step) gives us a realistic range of $1.08M–$1.13M. Key risk: Dunmore Financial ($180K) needs next step by end of week or moves to Q3. Kirkstone Capital correction in progress — Tom Ashworth revising submission. Chloe Bennett is tracking clean; Apex Cloud Solutions ($220K) commit solid. Focused on closing the $120K gap through Dunmore Financial acceleration and Vertex Systems reactivation.",
         },
         highlights: ["OPP-100103", "OPP-100126"],
       };
@@ -167,7 +167,7 @@ export default function JamesView() {
 
     if (q.includes("tom") || q.includes("ashworth")) {
       return {
-        reply: `Tom's pipeline tells a mixed story.\n\nHe has three deals totalling $350K. On paper that's 156% coverage against his $225K quota.\n\nBut look closer:\n\nBarclays ($110K) — Sophie moved it from Commit to Upside last week. Tom hasn't corrected his submission. That's an accountability gap you need to close today.\n\nHSBC ($180K) — his biggest deal. No next step logged in 14 days. This is either moving or it isn't, and right now you can't tell which.\n\nNatWest ($60K) is clean Pipeline for Q3.\n\nTom's Q2 position is weaker than his headline number suggests. I'd have that conversation before the week is out.`,
+        reply: `Tom's pipeline tells a mixed story.\n\nHe has three deals totalling $350K. On paper that's 156% coverage against his $225K quota.\n\nBut look closer:\n\nKirkstone Capital ($110K) — Sophie moved it from Commit to Upside last week. Tom hasn't corrected his submission. That's an accountability gap you need to close today.\n\nDunmore Financial ($180K) — his biggest deal. No next step logged in 14 days. This is either moving or it isn't, and right now you can't tell which.\n\nPemberton Trust ($60K) is clean Pipeline for Q3.\n\nTom's Q2 position is weaker than his headline number suggests. I'd have that conversation before the week is out.`,
         actions: {
           overrides: [],
           flags: [
@@ -182,7 +182,7 @@ export default function JamesView() {
 
     if (q.includes("drift") || q.includes("slip") || q.includes("stale")) {
       return {
-        reply: `Three deals showing drift signals.\n\nPwC ($65K, Liam O'Brien) — last activity 3 weeks ago. Close date unchanged. Classic stale upside. Needs a call this week or a close date push.\n\nHSBC ($180K, Tom Ashworth) — 14 days no next step. For your biggest upside deal, that's too long. Either there's news Tom hasn't logged, or the deal is drifting.\n\nSky ($185K, Dev Patel) — Q3, no champion identified. Still early, but $185K without a named champion at this stage is a risk. Dev needs to answer the champion question before your next forecast call.\n\nEverything else is moving cleanly. Chloe Bennett's pipeline in particular is well maintained.`,
+        reply: `Three deals showing drift signals.\n\nVertex Systems ($65K, Liam O'Brien) — last activity 3 weeks ago. Close date unchanged. Classic stale upside. Needs a call this week or a close date push.\n\nDunmore Financial ($180K, Tom Ashworth) — 14 days no next step. For your biggest upside deal, that's too long. Either there's news Tom hasn't logged, or the deal is drifting.\n\nHorizon Connect ($185K, Dev Patel) — Q3, no champion identified. Still early, but $185K without a named champion at this stage is a risk. Dev needs to answer the champion question before your next forecast call.\n\nEverything else is moving cleanly. Chloe Bennett's pipeline in particular is well maintained.`,
         actions: {
           overrides: [],
           flags: [
@@ -198,7 +198,7 @@ export default function JamesView() {
 
     // Default fallback
     return {
-      reply: `Good question. Here's my read based on the current pipeline.\n\nYour cleanest performers are Chloe Bennett (AWS commit solid at $220K, disciplined pipeline) and Priya Sharma (Unilever commit holding, P&G upside progressing).\n\nThe pressure points are in Tom Ashworth's book — Barclays and HSBC both need intervention this week.\n\nDev Patel's Q3 pipeline ($240K across Nestlé, O2 and Sky) looks strong on paper but Sky needs a champion before you can rely on it.\n\nWhat specifically do you want to dig into?`,
+      reply: `Good question. Here's my read based on the current pipeline.\n\nYour cleanest performers are Chloe Bennett (Apex Cloud Solutions commit solid at $220K, disciplined pipeline) and Priya Sharma (Hartwell Group commit holding, Caldera Partners upside progressing).\n\nThe pressure points are in Tom Ashworth's book — Kirkstone Capital and Dunmore Financial both need intervention this week.\n\nDev Patel's Q3 pipeline ($240K across Renfield & Sons, Prism Mobile and Horizon Connect) looks strong on paper but Horizon Connect needs a champion before you can rely on it.\n\nWhat specifically do you want to dig into?`,
       actions: { overrides: [], flags: [], narrative: null },
       highlights: ["OPP-100126", "OPP-100094", "OPP-100103"],
     };
